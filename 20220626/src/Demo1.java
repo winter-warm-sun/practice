@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Food {
 }
 class Fruit extends Food {
@@ -18,6 +21,10 @@ class Message<T> {
 }
 public class Demo1 {
     public static void main(String[] args) {
+        List<Integer> list=new ArrayList<>();
+        list.remove(0);
+    }
+    public static void main1(String[] args) {
         Message<Fruit> message1=new Message<>();
         message1.setMessage(new Fruit());
         fun(message1);
