@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 class Solution {
@@ -17,6 +19,8 @@ class Solution {
             list2.add(1);
             ret.add(list2);
         }
+        Iterator<Integer> iterator;
+        Collection
         return ret;
     }
 }
