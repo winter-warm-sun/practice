@@ -5,6 +5,7 @@ public class Demo {
         node1.next=node2;
         Node curNext=node2.next;
         node2.next=node1;
+        boolean
     }
 }
 class Node {
