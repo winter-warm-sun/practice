@@ -8,5 +8,7 @@ public class Test {
         System.out.println(binaryTree.getHeight(root));
         if(binaryTree.find(root,'E')!=null)
             System.out.println("true");
+        binaryTree.levelOrder(root);
+        System.out.println(binaryTree.isCompleteTree(root));
     }
 }

@@ -1,9 +1,12 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTree {
     static class TreeNode {
-        public int val;
+        public char val;
         public TreeNode left;
         public TreeNode right;
-        public TreeNode(int val) {
+        public TreeNode(char val) {
             this.val = val;
         }
     }
@@ -20,7 +23,7 @@ public class BinaryTree {
         A.right=C;
         B.left=D;
         B.right=E;
-        E.right=H;
+        //E.right=H;
         C.left=F;
         C.right=G;
         return A;
@@ -66,6 +69,7 @@ public class BinaryTree {
         int rightHeight=getHeight(root.right);
         return (leftHeight>rightHeight?leftHeight+1:rightHeight+1);
     }
+    //找关键字
     TreeNode find(TreeNode root, char val) {
         if(root==null)return null;
         if(root.val==val)return root;
@@ -74,5 +78,44 @@ public class BinaryTree {
         TreeNode ret2=find(root.right,val);
         if(ret2!=null)return ret2;
         return null;
+    }
+    //层序遍历
+    void levelOrder(TreeNode root) {
+        if(root==null) return;
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode cur=queue.poll();
+            System.out.println(cur.val);
+            if(cur.left!=null) {
+                queue.offer(cur.left);
+            }
+            if(cur.right!=null) {
+                queue.offer(cur.right);
+            }
+        }
+    }
+    //判断一棵树是不是完全二叉树
+    boolean isCompleteTree(TreeNode root) {
+        if(root==null) return true;
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        TreeNode cur=null;
+        while (!queue.isEmpty()) {
+            cur=queue.poll();
+            if(cur!=null) {
+                queue.offer(cur.left);
+                queue.offer(cur.right);
+            } else {
+                break;
+            }
+        }
+        while (!queue.isEmpty()) {
+            cur=queue.poll();
+            if(cur!=null) {
+                return false;
+            }
+        }
+        return true;
     }
 }
