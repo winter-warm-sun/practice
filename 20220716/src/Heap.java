@@ -49,6 +49,18 @@ public class Heap {
             }
         }
     }
+    public void heapSort() {
+        //堆尾位置
+        int end=usedSize-1;
+        //一直相同操作直到堆顶
+        while (end>0) {
+            //交换堆顶与堆尾元素
+            swap(elem,0,end);
+            //将堆顶元素向下调整(传参end为向下调整结束位置，因为向下调整方法区间为<)
+            shiftDown(0,end);
+            end--;
+        }
+    }
     /**
      * 交换两结点
      */
@@ -105,7 +117,7 @@ public class Heap {
         }
         int old=elem[0];
         PriorityQueue priorityQueue=new PriorityQueue<>();
-        priorityQueue.add();
+
         //交换堆顶与堆尾元素
         swap(elem,0,usedSize-1);
         //删除堆尾元素
@@ -117,5 +129,6 @@ public class Heap {
     public boolean isEmpty() {
         return usedSize==0;
     }
+
 
 }
