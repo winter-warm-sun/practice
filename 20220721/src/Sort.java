@@ -1,5 +1,7 @@
 import jdk.nashorn.internal.ir.SplitReturn;
 
+import java.util.Stack;
+
 public class Sort {
     public static void heapSort(int[] array) {
         createBigHeap(array);
@@ -139,5 +141,105 @@ public class Sort {
         }
     }
 
+    public static void quickSort2(int[] array) {
+        Stack<Integer> stack=new Stack<>();
+        int left=0;
+        int right=array.length-1;
+        int index=midNumIndex(array,left,right);
+        swap(array,left,index);
+        int pivot=partitionHole(array,left,right);
+        if(pivot>left+1) {
+            stack.push(left);
+            stack.push(pivot-1);
+        }
+        if (pivot<right-1) {
+            stack.push(pivot+1);
+            stack.push(right);
+        }
+        while (!stack.empty()) {
+            right=stack.pop();
+            left=stack.pop();
+            index=midNumIndex(array,left,right);
+            swap(array,left,index);
+            pivot=partitionHole(array,left,index);
+            if(pivot>left+1) {
+                stack.push(left);
+                stack.push(pivot-1);
+            }
+            if(pivot<right-1) {
+                stack.push(pivot+1);
+                stack.push(right);
+            }
+        }
+    }
 
+    public static void mergeSort(int[] array) {
+        mergeSortFunc(array,0,array.length-1);
+    }
+    private static void mergeSortFunc(int[] array,int left,int right) {
+        if(left>=right) {
+            return;
+        }
+        int mid=(left+right)/2;
+        //分解左边
+        mergeSortFunc(array,left,mid);
+        //分解右边
+        mergeSortFunc(array,mid+1,right);
+        //进行合并
+        merge(array,left,right,mid);
+    }
+
+    /**
+     * 实现归并
+     * @param array
+     * @param start
+     * @param end
+     * @param midIndex
+     */
+    private static void merge(int[] array,int start,int end,int midIndex) {
+        int[] tmpArr=new int[end-start+1];
+        int k=0;
+        int s1=start;
+        int s2=midIndex+1;
+        while (s1<=midIndex&&s2<=end) {
+            if(array[s1]<=array[s2]) {
+                tmpArr[k++]=array[s1++];
+            }else {
+                tmpArr[k++]=array[s2++];
+            }
+        }
+        //当两个归并段中有一段没数据后，把另一段剩余数据全部拷贝到tmpArr数组中去
+        while (s1<=midIndex) {
+            tmpArr[k++]=array[s1++];
+        }
+        while (s2<=end) {
+            tmpArr[k++]=array[s2++];
+        }
+        //把排好序的数字拷贝回原数组
+        for (int i = 0; i < k; i++) {
+            array[i+start]=tmpArr[i];
+        }
+    }
+    public static void mergeSort2(int[] array) {
+        int gap=1;
+        while (gap<array.length) {
+            for (int i = 0; i < array.length; i+=gap*2) {
+                int s1=i;
+                int e1=s1+gap-1;
+                if(e1>=array.length) {
+                    e1=array.length-1;
+                }
+                int s2=e1+1;
+                if(s2>=array.length) {
+                    s2=array.length-1;
+                }
+                int e2=s2+gap-1;
+                if(e2>=array.length) {
+                    e2=array.length-1;
+                }
+                merge(array,s1,e2,e1);
+            }
+            gap*=2;
+        }
+    }
 }
