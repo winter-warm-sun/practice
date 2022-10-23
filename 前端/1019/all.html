@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="all">我全都要 <br>
+    <input type="checkbox" class="girl">美杜莎 <br>
+    <input type="checkbox" class="girl">云韵 <br>
+    <input type="checkbox" class="girl">萧薰儿 <br>
+    <input type="checkbox" class="girl">雅菲 <br>
+    
+    <script>
+        // 1.获取到元素
+        let all=document.querySelector('#all');
+        let girls=document.querySelectorAll('.girl');
+        // 2.给all注册点击事件，选中/取消所有选项
+        all.onclick=function() {
+            for(let i=0;i<girls.length;i++) {
+                girls[i].checked=all.checked;
+            }
+        }
+        // 3.给girl注册点击事件
+        for(let i=0;i<girls.length;i++) {
+            girls[i].onclick=function() {
+                // 检测当前是不是所有的girl都被选中了
+                all.checked=checkGirls(girls);
+            }
+        }
+        // 4.实现checkGirls
+        function checkGirls(girls) {
+            for(let i=0;i<girls.length;i++) {
+                if(!girls[i].checked) {
+                    //只要有一个girl没被选中，就认为结果是false
+                    return false;
+                }
+            }
+            // 所有girl都被选中，就是全选中
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="resetBtn">重新开始一局游戏</button><br>
+    <span>要猜的数字：</span>
+    <input type="text">
+    <button id="guessBtn">猜</button><br>
+    <span>结果:</span><span id="result"></span><br>
+    <span>已经猜的次数：</span><span id="guessCount">0</span>
+
+    <script>
+        // 1.先把上面需要用到的元素拿到
+        let resetBtn=document.querySelector('#resetBtn');
+        let input=document.querySelector('input');
+        let guessBtn=document.querySelector('#guessBtn');
+        let resultSpan=document.querySelector('#result');
+        let guessCountSpan=document.querySelector('#guessCount');
+
+        // 2.生成一个1-100的随机整数
+        let toGuess=Math.floor(Math.random()*100)+1;
+        // Math.random()生成[0,1)的数字，乘以一百通过floor向下取整，加一得到[1,100]的随机数
+        console.log(toGuess);
+
+        // 3.点击实现猜的逻辑
+        guessBtn.onclick=function() {
+            // 1.读取到input中输入的内容，并转成整数
+            if(input.value=='') {
+                return;
+            }
+            let curNum=parseInt(input.value);
+            // 2.判定大小关系，并给出提示
+            if(curNum<toGuess) {
+                resultSpan.innerHTML='低了';
+                resultSpan.style.color='red';
+            }else if(curNum>toGuess) {
+                resultSpan.innerHTML='高了';
+                resultSpan.style.color='red';
+            }else {
+                resultSpan.innerHTML='猜对了！';
+                resultSpan.style.color='green';
+            }
+            // 3.更新猜的次数
+            let guessCount=parseInt(guessCountSpan.innerHTML);
+            guessCountSpan.innerHTML=guessCount+1;
+        }
+
+        // 4.实现reset操作的逻辑（开始新游戏）
+        resetBtn.onclick=function() {
+            // 让页面刷新即可
+            location.reload();
+        }
+    </script>
+</body>
+</html>

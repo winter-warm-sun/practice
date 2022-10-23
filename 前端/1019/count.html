@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="screen" value="0">
+    <button id="plus">+</button>
+    <script>
+        let plusBtn=document.querySelector("#plus");
+        plusBtn.onclick=function() {
+            // 1.获取到screen里的值
+            let screen=document.querySelector("#screen");
+            let val=screen.value;
+            // 获取到的值默认为string类型，需要转换成number类型
+            val=parseInt(val);
+            // 2.val++；
+            val+=1;
+            // 3.把新值写回去
+            screen.value=val;
+        }
+    </script>
+</body>
+</html>

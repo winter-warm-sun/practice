@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    </div>
+    <button>删除 div</button>
+    <script>
+        let newDiv=document.createElement('div');
+        newDiv.id='newDiv';
+        newDiv.className='one';
+        newDiv.innerHTML='hello';
+        console.log(newDiv);
+
+        let container=document.querySelector('.container');
+        container.appendChild(newDiv);
+
+        let button=document.querySelector('button');
+        button.onclick=function() {
+            container.removeChild(newDiv);
+        }
+    </script>
+</body>
+</html>
