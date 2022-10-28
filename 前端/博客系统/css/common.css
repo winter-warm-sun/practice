@@ -52,7 +52,7 @@ body {
     /* 版心略小于窗口 */
     width: 1000px;
     /* 闪出导航栏的高度 */
-    height: calc(100%-50px);
+    height: calc(100% - 50px);
 
     /* 水平居中 */
     margin: 0 auto;
