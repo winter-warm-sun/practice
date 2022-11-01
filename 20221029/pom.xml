@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>maven_project</artifactId>
+    <artifactId>20221029</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -20,13 +20,10 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
-<!--    &lt;!&ndash;打的包是一个war包，默认是jar包&ndash;&gt;-->
-<!--    <packaging>war</packaging>-->
 
-<!--    &lt;!&ndash;指定打出的war包的名字&ndash;&gt;-->
-<!--    <build>-->
-<!--        <finalName>hello</finalName>-->
-<!--    </build>-->
+    <packaging>war</packaging>
+    <build>
+        <finalName>1029Test</finalName>
+    </build>
 </project>
