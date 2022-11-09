@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function swap(array,a,b) {
+            let temp=array[a];
+            array[a]=array[b];
+            array[b]=temp;
+        }
+        function bubbleSort(array) {
+            for(let i=0;i<array.length-1;i++) {
+                let flag=false;
+                for(let j=0;j<array.length-i;j++) {
+                    if(array[j]>array[j+1]) {
+                        swap(array,j,j+1);
+                        flag=true;
+                    } 
+                }
+                if(!flag) break;
+            }
+        }
+        let array=[7,9,4,6,8,33,89,0];
+        bubbleSort(array);
+        console.log(array);
+
+
+        function partition(array,start,end) {
+            let key=array[start];
+            while(start<end) {
+                while(start<end&&array[end]>=key) {
+                    end--;
+                }
+                array[start]=array[end];
+                while(start<end&&array[start]<=key) {
+                    start++;
+                }
+                array[end]=array[start];
+            }
+            array[start]=key;
+            return start;
+        }
+        function midNumIndex(array,left,right) {
+            let mid=(parseInt)(left+right)/2;
+            if(array[left] < array[right]) {
+                if(array[mid] < array[left]) {
+                    return left;
+                    }else if(array[mid] > array[right]) {
+                        return right;
+                    }else {
+                        return mid;
+                }
+            }else {
+                if(array[mid] < array[right]) {
+                    return right;
+                }else if(array[mid] > array[left]){
+                    return left;
+                }else {
+                    return mid;
+                }
+            }
+        }
+        function quick(array,left,right) {
+            if(left>=right) {
+                return;
+            }
+
+            let index=midNumIndex(array,left,right);
+            swap(array,left,index);
+
+            let pivot=partition(array,left,right);
+            quick(array,left,pivot-1);
+            quick(array,pivot+1,right);
+        }
+        let array2=[3,7,4,9,30,28,34];
+        quick(array2,0,array2.length-1);
+        console.log(array2);
+    </script>
+</body>
+</html>

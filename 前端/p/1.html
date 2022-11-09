@@ -7,22 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-   <div>
-    <span>云韵</span>
-    <span>云韵</span>
-    <span>云韵</span>
-   </div>
+    <div class="parent">
+        <div class="one">1</div>
+        <div class="one">2</div>
+        <div class="one">3</div>
+    </div>
 
-   <div>
-    <span>美杜莎</span>
-    <span>美杜莎</span>
-    <span>美杜莎</span>
-   </div>
+    <style>
+        .parent {
+            /* width : 100% 让当前元素的宽度和他的父元素一样宽 */
+            width: 100%;
+            height: 200px;
+            background-color: rgb(96,10,107);
 
-   <div>
-    <span>萧薰儿</span>
-    <span>萧薰儿</span>
-    <span>萧薰儿</span>
-   </div>
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(100,200,100);
+            border-radius: 15px;
+        }
+    </style>
 </body>
 </html>

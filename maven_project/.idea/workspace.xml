@@ -5,15 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcbe234d-5de2-47d9-b129-71c7de803fc6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../20221029/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../20221029/src/main/java/HelloWorld.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../20221029/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../maven_hello/src/main/java/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../maven_hello/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../笔试强训/笔试强训.md" beforeDir="false" afterPath="$PROJECT_DIR$/../笔试强训/笔试强训.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,6 +82,7 @@
       <workItem from="1667139998801" duration="3073000" />
       <workItem from="1667187547519" duration="633000" />
       <workItem from="1667199439126" duration="2365000" />
+      <workItem from="1667357455456" duration="73000" />
     </task>
     <servers />
   </component>

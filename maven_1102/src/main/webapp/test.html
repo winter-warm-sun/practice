@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 前端HTML部分内容 -->
+    <input type="text" id="userId">
+    <input type="text" id="classId">
+    <input type="button" id="submit" value="提交">
+
+    <!-- 导入jQuery -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        let userIdInput=document.querySelector('#userId');
+        let classIdInput=document.querySelector('#classId');
+        let button=document.querySelector('#submit');
+        button.onclick=function() {
+            $.ajax({
+                type:'post',
+                url:'postJson',
+                contentType:'application/json',
+                data:JSON.stringify({
+                    userId:userIdInput.value,
+                    classId:classIdInput.value
+                }),
+                success:function(body) {
+                    console.log(body);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
