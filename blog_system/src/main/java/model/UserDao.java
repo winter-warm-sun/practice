@@ -41,7 +41,7 @@ public class UserDao {
         PreparedStatement statement=null;
         ResultSet resultSet=null;
         try {
-            connection=statement.getConnection();
+            connection=DBUtil.getConnection();
             String sql="select * from user where userId=?";
             statement=connection.prepareStatement(sql);
             statement.setInt(1,userId);
