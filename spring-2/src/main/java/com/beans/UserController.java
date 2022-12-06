@@ -6,13 +6,13 @@ import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 
-@Controller
-public class UserController {
-    @Autowired
-    @Qualifier(value = "u1")
-    private User user;
-
-    public void sayHi() {
-        System.out.println("user->"+user);
-    }
-}
+//@Controller
+//public class UserController {
+//    @Autowired
+//    @Qualifier(value = "u1")
+//    private User user;
+//
+//    public void sayHi() {
+//        System.out.println("user->"+user);
+//    }
+//}
