@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c1277f7b-513f-4c17-a59e-1fc87d066410" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/FinalResults.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FinalResults.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalResults/Login/DbUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalResults/Login/DbUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NewTank单机版/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NewTank单机版/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="299Jc56nS7CfiH86pcQrgKe4369" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java项目\tank-battle\FinalResults" />
+      <recent name="D:\java项目\tank-battle\FinalResults\images" />
+      <recent name="D:\gitee\FinalResults\src\Game" />
+      <recent name="D:\gitee\FinalResults\src\Message" />
+      <recent name="D:\gitee\FinalResults\src\Main" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.LogOnFrm">
+    <configuration name="LogOnFrm" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="login.LogOnFrm" />
+      <module name="FinalResults" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginServer (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="login.LoginServer" />
+      <module name="FinalResults" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Login.LoginServer" />
+      <module name="FinalResults" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="login.LoginServer" />
+      <module name="FinalResults" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TankClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main.TankClient" />
+      <module name="FinalResults" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TankServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main.TankServer" />
+      <module name="FinalResults" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="应用程序.TankClient" />
+      <item itemvalue="应用程序.TankServer" />
+      <item itemvalue="应用程序.LoginServer" />
+      <item itemvalue="应用程序.LogOnFrm" />
+      <item itemvalue="应用程序.LoginServer (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.LogOnFrm" />
+        <item itemvalue="应用程序.TankServer" />
+        <item itemvalue="应用程序.LoginServer (1)" />
+        <item itemvalue="应用程序.TankClient" />
+        <item itemvalue="应用程序.LoginServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="c1277f7b-513f-4c17-a59e-1fc87d066410" name="变更" comment="" />
+      <created>1652519445772</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652519445772</updated>
+      <workItem from="1652519448241" duration="1349000" />
+      <workItem from="1652578217744" duration="152000" />
+      <workItem from="1652578638023" duration="938000" />
+      <workItem from="1652580830157" duration="203000" />
+      <workItem from="1652582780851" duration="589000" />
+      <workItem from="1652583548080" duration="469000" />
+      <workItem from="1652592909429" duration="811000" />
+      <workItem from="1652594357697" duration="605000" />
+      <workItem from="1652598264725" duration="122000" />
+      <workItem from="1652598529013" duration="77000" />
+      <workItem from="1652598630324" duration="1788000" />
+      <workItem from="1652600455215" duration="2543000" />
+      <workItem from="1652603439667" duration="373000" />
+      <workItem from="1652611102938" duration="8000" />
+      <workItem from="1653269751429" duration="799000" />
+      <workItem from="1653492608329" duration="154000" />
+      <workItem from="1653528233568" duration="9000" />
+      <workItem from="1655107440425" duration="1204000" />
+      <workItem from="1655127173939" duration="1565000" />
+      <workItem from="1655165611236" duration="46000" />
+      <workItem from="1655198505046" duration="391000" />
+      <workItem from="1655203994835" duration="322000" />
+      <workItem from="1655260058870" duration="2200000" />
+      <workItem from="1655363434157" duration="4893000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

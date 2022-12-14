@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bed65347-6127-485e-9c22-451d2f12b582" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../20221115/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221119/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog_system/src/main/java/controller/AuthorServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog_system/src/main/java/controller/BlogDeleteServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog_system/src/main/java/controller/LogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../20221107/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../20221107/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/src/main/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/src/main/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/src/main/java/controller/BlogServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/src/main/java/controller/BlogServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/src/main/java/model/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/src/main/java/model/DBUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/src/main/java/model/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/src/main/java/model/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/src/main/webapp/blog_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/src/main/webapp/blog_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/src/main/webapp/blog_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/src/main/webapp/blog_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/src/main/webapp/blog_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/src/main/webapp/blog_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/src/main/webapp/css/blog_edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/src/main/webapp/css/blog_edit.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/src/main/webapp/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/src/main/webapp/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/target/classes/controller/BlogServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/target/classes/controller/BlogServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/target/classes/model/DBUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/target/classes/model/DBUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog_system/target/classes/model/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../blog_system/target/classes/model/UserDao.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Ho0i705FVwjDYsKwQvZFXIUfPz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="20221120" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bed65347-6127-485e-9c22-451d2f12b582" name="Changes" comment="" />
+      <created>1668936254802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668936254802</updated>
+      <workItem from="1668936256088" duration="776000" />
+      <workItem from="1668940904864" duration="3000" />
+      <workItem from="1669004114788" duration="424000" />
+      <workItem from="1669360851766" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

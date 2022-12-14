@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b5d587c-bd7d-4f10-a9b8-b6671686cd79" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../20220824/src/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20220828/src/Demo1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20220828/src/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20220830/src/UdpEchoClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20220830/src/UdpEchoServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UdpDictClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UdpDictServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20220901/src/TcpEchoClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20220901/src/TcpEchoServer.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2E7XNSbHZE81W8TiVuFBpvHZHnF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager" selected="Application.UdpDictClient">
+    <configuration name="UdpDictClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UdpDictClient" />
+      <module name="20220831" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UdpDictServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UdpDictServer" />
+      <module name="20220831" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.UdpDictClient" />
+        <item itemvalue="Application.UdpDictServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b5d587c-bd7d-4f10-a9b8-b6671686cd79" name="Changes" comment="" />
+      <created>1661947557299</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661947557299</updated>
+      <workItem from="1661947558708" duration="4618000" />
+      <workItem from="1661998063897" duration="22000" />
+      <workItem from="1661998404915" duration="1223000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

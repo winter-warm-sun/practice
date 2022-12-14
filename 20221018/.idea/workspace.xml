@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="22907334-5d4a-4c77-8734-4ece82f3db15" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../20221010/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221013/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221013/src/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221013/src/Test1/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221013/src/Test2/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221014/src/Test1/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221014/src/Test2/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221015/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221015/src/TcpEchoClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221015/src/TcpEchoServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221015/src/UdpEchoClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221015/src/UdpEchoServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../20221017/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端/2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端/2.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GJ69eEBA0PdPt1lB7GMaFXH74v" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="20221018" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="20221018" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="22907334-5d4a-4c77-8734-4ece82f3db15" name="Changes" comment="" />
+      <created>1666094191667</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666094191667</updated>
+      <workItem from="1666094193179" duration="1847000" />
+      <workItem from="1666252747096" duration="674000" />
+      <workItem from="1666401692010" duration="1939000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
