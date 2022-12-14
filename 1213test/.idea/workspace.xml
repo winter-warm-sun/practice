@@ -5,19 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10aad89a-1e00-423c-addc-2a6c7eb5ffed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/图片.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/文字.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/文本.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/文档.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/表格.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../20221213py/hello.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_20221213/src/main/java/com/example/_20221213/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_20221213/src/main/java/com/example/_20221213/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pythonHomework/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pythonHomework/data/图片.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pythonHomework/data/文字.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pythonHomework/data/表格.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pythonHomework/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create/1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create/2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create/3.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/word.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/笔记.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonHomework/create/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonHomework/data/1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonHomework/data/2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/文字.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonHomework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonHomework/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonHomework/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonHomework/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonHomework/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,20 +37,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/GitHub/1213test",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/1213test/data&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\GitHub\1213test" />
       <recent name="D:\GitHub\1213test\data" />
+      <recent name="D:\GitHub\1213test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GitHub\1213test\data" />
       <recent name="D:\GitHub\1213test" />
     </key>
   </component>

@@ -1,10 +1,26 @@
-from PyPDF2 import PdfFileReader, PdfFileWriter  # 读和写
+import fitz
+import re
+import os
 
-path = './表格.pdf'
-path2 ='D:/GitHub/1213test'
-read = PdfFileReader(path)
-for page in range(read.getNumPages()):  # getNumPages()获取总页数
-    write = PdfFileWriter()  # 实例化对象
-    write.addPage(read.getPage(page))  # 将遍历出的每一页添加到实例化对象中
-    with open(path2+f'/{page + 1}.pdf', "wb") as name:
-        write.write(name)
+file_path = r'笔记.pdf'  # PDF 文件路径
+dir_path = r'image'  # 存放图片的文件夹
+
+
+def pdf2image1(path, pic_path):
+    checkIM = r"/Subtype(?= */Image)"
+    pdf = fitz.open(path)
+    lenXREF = pdf._getXrefLength()
+    count = 1
+    for i in range(1, lenXREF):
+        text = pdf._getXrefString(i)
+        isImage = re.search(checkIM, text)
+        if not isImage:
+            continue
+        pix = fitz.Pixmap(pdf, i)
+        new_name = f"img_{count}.png"
+        pix.writePNG(os.path.join(pic_path, new_name))
+        count += 1
+        pix = None
+
+
+pdf2image1(file_path, dir_path)

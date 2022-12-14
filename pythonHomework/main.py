@@ -7,7 +7,7 @@ def menm():  # 菜单
     print('\t\t\t   1.提取PDF文本')
     print('\t\t\t   2.提取PDF表格')
     print('\t\t\t   3.PDF表格导入Excel')
-    print('\t\t\t   4.提取PDF图片')
+    print('\t\t\t   4.提取PDF中的图片')
     print('\t\t\t   5.合并多个PDF')
     print('\t\t\t   6.拆分PDF')
     print('\t\t\t   7.word转PDF')
@@ -47,21 +47,25 @@ def main():  # 主程序
                 merge_pdf(path1, path2)  # 合并多个PDF
             elif choice == 6:
                 path1 = input('请输入要拆分的PDF路径：')
-                path2 =input('请输入要存放的路径:')
+                path2 = input('请输入要存放的路径:')
                 split_pdf(path1, path2)  # 拆分PDF
             elif choice == 7:
-                path = input('请输入要word转PDF路径：')
-                word_pdf(path)  # word转PDF
+                # 路径填写绝对路径
+                word_path = input('请输入word路径：')
+                pdf_path = input('请输入pdf路径')
+                word_pdf(word_path, pdf_path)  # word转PDF
             elif choice == 8:
-                path = input('请输入要PDF转word路径：')
-                pdf_word(path)  # PDF转word
+                pdf_path = input('请输入pdf路径')
+                word_path = input('请输入word路径：')
+                pdf_word(pdf_path, word_path)  # PDF转word
+
 
 def read_text(path):
     import pdfplumber
     with pdfplumber.open(path) as pdf:
-
         for page in pdf.pages:
             print(page.extract_text())
+
 
 def read_excel(path):
     import pdfplumber
@@ -72,7 +76,8 @@ def read_excel(path):
                 data = pd.DataFrame(table[1:], columns=table[0])
                 print(data)
 
-def import_excel(path1,path2):
+
+def import_excel(path1, path2):
     import pdfplumber
     import pandas as pd
     count = 1
@@ -83,24 +88,58 @@ def import_excel(path1,path2):
                     data = pd.DataFrame(table[1:], columns=table[0])
                     data.to_excel(writer, sheet_name=f'sheet{count}')  # 分列表导出excel
                     count += 1
+
+
 # def read_img(path):
 #
-# def merge_pdf(path1,path2):
-#
-def split_pdf(path1,path2):
+def merge_pdf(path1, path2):
+    from PyPDF2 import PdfFileReader, PdfFileWriter
+    write = PdfFileWriter()
+    for path in [path1, path2]:
+        tmp_pdf = PdfFileReader(open(path, 'rb'))
+        for page in tmp_pdf.pages:
+            write.addPage(page)
+
+    with open('./create/合并pdf.pdf', 'wb') as out:
+        write.write(out)
+
+
+def split_pdf(path1, path2):
     from PyPDF2 import PdfFileReader, PdfFileWriter  # 读和写
 
     read = PdfFileReader(path1)
     for page in range(read.getNumPages()):  # getNumPages()获取总页数
         write = PdfFileWriter()  # 实例化对象
         write.addPage(read.getPage(page))  # 将遍历出的每一页添加到实例化对象中
-        with open(path2+f'/{page + 1}.pdf', "wb") as name:
+        with open(path2 + f'/{page + 1}.pdf', "wb") as name:
             write.write(name)
 
 
-# def word_pdf(path):
-#
-# def pdf_word(path):
+def word_pdf(word_path, pdf_path):
+    from win32com.client import gencache
+    from win32com.client import constants, gencache
+
+    # word转pdf
+    # :param wordPath: word文件路径
+    # :param pdfPath:  生成pdf文件路径
+
+    word = gencache.EnsureDispatch('Word.Application')
+    doc = word.Documents.Open(word_path, ReadOnly=1)
+    doc.ExportAsFixedFormat(pdf_path,
+                            constants.wdExportFormatPDF,
+                            Item=constants.wdExportDocumentWithMarkup,
+                            CreateBookmarks=constants.wdExportCreateHeadingBookmarks)
+    word.Quit(constants.wdDoNotSaveChanges)
+
+
+def pdf_word(pdf_path, word_path):
+    from pdf2docx import Converter
+
+    # convert pdf to docx
+    cv = Converter(pdf_path)
+    cv.convert(word_path)  # 默认参数start=0, end=None
+    cv.close()
+
 
 if __name__ == '__main__':
     main()
