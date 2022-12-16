@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery.min.js"></script>
+    <title>登录</title>
+    <script>
+        // ajax提交
+        function mysub(){
+            // 1.判空
+            let username=jQuery("#username");
+            let password=jQuery("#password");
+            if(jQuery.trim(username.val())=="") {
+                alert("请先输入用户名！");
+                username.focus();// 光标重置到此处
+                return;
+            }
+            if(jQuery.trim(password.val())=="") {
+                alert("请先输入密码！");
+                password.focus();// 光标重置到此处
+                return;
+            }
+            jQuery.ajax({
+                url:"/login",
+                type:"POST",
+                data:{"username":username.val(),
+                "password":password.val()},
+                success:function(body) {
+                    alert(JSON.stringify(body));
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>登录</h1>
+        用户：<input id="username"><br>
+        密码：<input id="password" type="password"><br>
+        <input type="button" value="提交" onclick="mysub()" style="margin-top: 20px;margin-left: 50px;">
+    </div>
+</body>
+</html>

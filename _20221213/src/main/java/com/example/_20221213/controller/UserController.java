@@ -2,10 +2,7 @@ package com.example._20221213.controller;
 
 import com.example._20221213.model.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @ResponseBody // 作用：表示返回的是一个非静态页面的数据
@@ -24,7 +21,7 @@ public class UserController {
         return "用户名："+username+" | 密码："+password;
     }
     @RequestMapping("/reg")
-    public String user(User user) {
+    public String user(@RequestBody User user) {
         return "用户信息："+user;
     }
 }

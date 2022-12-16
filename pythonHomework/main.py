@@ -39,8 +39,9 @@ def main():  # 主程序
                 path2 = input('请输入excel路径：')
                 import_excel(path1, path2)  # PDF表格导入Excel
             elif choice == 4:
-                path = input('请输入要提取图片的PDF路径：')
-                read_img(path)  # 提取PDF图片
+                pdf_path = input('请输入要提取图片的PDF路径：')
+                pic_path = input('请输入要存放图片的路径：')
+                read_img(pdf_path,pic_path)  # 提取PDF图片
             elif choice == 5:
                 path1 = input('请输入要合并的PDF路径1：')
                 path2 = input('请输入要合并的PDF路径2：')
@@ -90,8 +91,25 @@ def import_excel(path1, path2):
                     count += 1
 
 
-# def read_img(path):
-#
+def read_img(pdf_path, pic_path):
+    import fitz
+    import re
+    import os
+
+    checkIM = r"/Subtype(?= */Image)"
+    pdf = fitz.open(pdf_path)
+    lenXREF = pdf._getXrefLength()
+    count = 1
+    for i in range(1, lenXREF):
+        text = pdf._getXrefString(i)
+        isImage = re.search(checkIM, text)
+        if not isImage:
+            continue
+        pix = fitz.Pixmap(pdf, i)
+        new_name = f"img_{count}.png"
+        pix.writePNG(os.path.join(pic_path, new_name))
+        count += 1
+        pix = None
 def merge_pdf(path1, path2):
     from PyPDF2 import PdfFileReader, PdfFileWriter
     write = PdfFileWriter()

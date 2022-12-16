@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3510ad80-d80a-40f3-b1ca-1e219f923a05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../1213test/create/1.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../1213test/create/2.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../1213test/create/3.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../1213test/create/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../1213test/data/word.doc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../1213test/data/笔记.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/1.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create/picture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create/word2pdf.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/word.doc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../1213test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1213test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1213test/data/文字.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1213test/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../1213test/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,12 +39,13 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/pythonHomework/data&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/pythonHomework/create&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\pythonHomework\create" />
       <recent name="D:\GitHub\pythonHomework\data" />
     </key>
   </component>
