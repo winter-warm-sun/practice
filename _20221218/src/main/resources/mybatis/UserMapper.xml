@@ -5,4 +5,24 @@
     <select id="getUserById" resultType="com.example.demo.model.UserInfo">
         select * from userinfo where id=${id}
     </select>
+
+    <insert id="add">
+        insert into userinfo(username,password,photo)
+        values (#{username},#{password},#{photo})
+    </insert>
+
+    <insert id="add2" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into userinfo(username,password,photo)
+        values (#{username},#{password},#{photo})
+    </insert>
+
+    <!--根据用户ID删除用户-->
+    <delete id="delete">
+        delete from userinfo where id=#{id}
+    </delete>
+
+    <!--根据用户ID修改用户名称-->
+    <update id="update">
+        update userinfo set username=#{username} where id=#{id}
+    </update>
 </mapper>

@@ -6,3 +6,14 @@ spring:
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 开启MyBatis SQL打印
+logging:
+  level:
+    com:
+      example:
+        demo: debug
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
