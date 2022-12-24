@@ -12,13 +12,17 @@ public class Restaurant {
     private String distance;
     private List<Order> list;
 
-    public Restaurant(String userName, String password, String name, String address, String specialty, String distance) {
-        this.userName = userName;
-        this.password = password;
-        this.name = name;
-        this.address = address;
-        this.specialty = specialty;
-        this.distance = distance;
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", specialty='" + specialty + '\'' +
+                ", distance='" + distance + '\'' +
+                '}';
+    }
+
+    public Restaurant() {
         this.list = new ArrayList<>();
     }
 

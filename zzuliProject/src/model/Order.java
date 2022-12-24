@@ -6,6 +6,9 @@ public class Order {
     private String time;
     private Integer isDone;
 
+    public Order() {
+    }
+
     public String getUser() {
         return user;
     }

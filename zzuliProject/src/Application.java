@@ -2,10 +2,10 @@ import controller.AdminBookController;
 import controller.AdminMesController;
 import controller.UserBookController;
 import controller.UserMesController;
-import model.Order;
 import model.RestaurantDao;
 import model.UserDao;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Application {
@@ -46,10 +46,15 @@ public class Application {
         if(choice==1){
             UserDao userDao=new UserDao();
             System.out.println("请输入账号：");
-            String userName = inString();
+            String username = inString();
             System.out.println("请输入密码：");
             String password = inString();
-            boolean isUser = userDao.userLogin(userName,password);
+            boolean isUser = false;
+            try {
+                isUser = userDao.userLogin(username,password);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             //如果账号密码存在并且正确
             if(isUser){
                 System.out.println("================欢迎登录用户管理系统================");
@@ -64,13 +69,13 @@ public class Application {
                         menuUser();
                         break;
                     case 1:
-                        userController(userName);
+                        userController(username);
                         break;
                     case 2:
-                        UserBookController.findRes(userName);
+                        UserBookController.findRes();
                         break;
                     case 3:
-                        restaurantBook(userName);
+                        restaurantBook(username);
                         break;
                 }
             }else{
@@ -78,9 +83,18 @@ public class Application {
             }
         }else if(choice==2){
             System.out.println("请输入注册账号：");
-            int userNameApply = inInt();
+            String userNameApply = inString();
             System.out.println("请输入您的密码：");
-            int passwordApply = inInt();
+            String passwordApply = inString();
+            System.out.println("请输入您的电话：");
+            String phoneApply=inString();
+            UserDao userDao=new UserDao();
+            try {
+                userDao.addUser(userNameApply,passwordApply,phoneApply);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            menuMain();
         }else if(choice==0){
             menuMain();
         }
@@ -89,9 +103,9 @@ public class Application {
 
     /**
      * 用户子系统的用户管理功能
-     * @param userName
+     * @param username
      */
-    private void userController(String userName) {
+    private void userController(String username) {
         UserMesController controller=new UserMesController();
         System.out.println("================用户个人信息管理================");
         System.out.println("\t\t\t\t查看个人信息(1)");
@@ -105,22 +119,22 @@ public class Application {
                 menuUser();
                 break;
             case 1:
-                controller.selectUser(userName);
+                controller.selectUser(username);
                 break;
             case 2:
-                controller.updateUser(userName);
+                controller.updateUser(username);
                 break;
             case 3:
-                controller.deleteUser(userName);
+                controller.deleteUser(username);
                 break;
         }
     }
 
     /**
      * 用户子系统的餐馆预定功能
-     * @param userName
+     * @param username
      */
-    private void restaurantBook(String userName) {
+    private void restaurantBook(String username) {
         UserBookController controller=new UserBookController();
         System.out.println("\t\t\t\t查询用户所有预定(1)");
         System.out.println("\t\t\t\t查询某餐馆的预定(2)");
@@ -132,17 +146,13 @@ public class Application {
                 menuUser();
                 break;
             case 1:
-                controller.searchUserOrder(userName);
+                controller.searchUserOrder(username);
                 break;
             case 2:
-                System.out.println("请输入要查询餐馆的名称：");
-                String name=inString();
-                controller.searchResOrder(name);
+                controller.searchResOrder();
                 break;
             case 3:
-
-                Order order=new Order();
-                controller.addOrder(order);
+                controller.addOrder(username);
                 break;
         }
     }

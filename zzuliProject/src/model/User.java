@@ -17,10 +17,7 @@ public class User {
         this.list = list;
     }
 
-    public User(String userName, String password, String phone) {
-        this.userName = userName;
-        this.password = password;
-        this.phone = phone;
+    public User() {
         this.list=new ArrayList<>();
     }
 
