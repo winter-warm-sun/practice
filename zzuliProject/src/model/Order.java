@@ -6,6 +6,16 @@ public class Order {
     private String time;
     private Integer isDone;
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "user='" + user + '\'' +
+                ", restaurant='" + restaurant + '\'' +
+                ", time='" + time + '\'' +
+                ", isDone=" + isDone +
+                '}';
+    }
+
     public Order() {
     }
 

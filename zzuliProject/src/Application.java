@@ -229,10 +229,10 @@ public class Application {
                 controller.searchAllOrder(username);
                 break;
             case 2:
-                controller.searchUserOrder(username);
+                controller.searchUserOrder();
                 break;
             case 3:
-                controller.doOrder(1);
+                controller.doOrder(username);
                 break;
         }
     }

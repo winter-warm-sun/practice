@@ -15,8 +15,7 @@ public class RestaurantDao {
     public static void main(String[] args) {
         RestaurantDao restaurantDao=new RestaurantDao();
         try {
-            List<Order> list=restaurantDao.searchAllOrder("俏江南");
-            System.out.println(list);
+            restaurantDao.doOrder("123");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -131,13 +130,13 @@ public class RestaurantDao {
 
     /**
      * 查询所有预定
-     * @param name
+     * @param username
      * @return
      */
-    public List<Order> searchAllOrder(String name) throws SQLException {
+    public List<Order> searchAllOrder(String username) throws SQLException {
         List<Order> list=new ArrayList<>();
         Connection connection=DBUtil.getConnection();
-        String sql="select * from order_ where rid=(select rid from restaurant where name=?)";
+        String sql="select * from order_ where rid=(select rid from restaurant where username=?)";
         String sql2="select username from user where uid=?";
         PreparedStatement statement=null;
         PreparedStatement statement2=null;
@@ -145,7 +144,7 @@ public class RestaurantDao {
         ResultSet resultSet2=null;
         try {
             statement=connection.prepareStatement(sql);
-            statement.setString(1,name);
+            statement.setString(1,username);
             resultSet=statement.executeQuery();
             while (resultSet.next()) {
                 Order order=new Order();
@@ -175,16 +174,49 @@ public class RestaurantDao {
      * @param username
      * @return
      */
-    public List<Order> searchUserOrder(String username) {
-        return null;
+    public List<Order> searchUserOrder(String username) throws SQLException {
+        List<Order> list=new ArrayList<>();
+        Connection connection=DBUtil.getConnection();
+        String sql="select * from order_ where uid=(select uid from user where username=?)";
+        PreparedStatement statement=null;
+        ResultSet resultSet=null;
+        try {
+            statement=connection.prepareStatement(sql);
+            statement.setString(1,username);
+            resultSet=statement.executeQuery();
+            while (resultSet.next()) {
+                Order order=new Order();
+                order.setTime(resultSet.getString("time"));
+                order.setIsDone(resultSet.getInt("isDone"));
+                list.add(order);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection,statement,resultSet);
+        }
+        return list;
     }
 
     /**
      * 处理预定
-     * @param orderId
-     * @param list
+     * @param username
      */
-    public void doOrder(int orderId,List<Order> list) {
-
+    public void doOrder(String username) throws SQLException {
+        Connection connection=DBUtil.getConnection();
+        String sql="update order_ set isDone=1 where uid=(select uid from user where username=?)";
+        PreparedStatement statement=null;
+        try {
+            statement=connection.prepareStatement(sql);
+            statement.setString(1,username);
+            int res=statement.executeUpdate();
+            if(res==1) {
+                System.out.println("修改订单状态成功！");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection,statement,null);
+        }
     }
 }
