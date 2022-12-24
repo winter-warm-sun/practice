@@ -167,7 +167,12 @@ public class Application {
         String adminName = inString();
         System.out.println("请输入密码：");
         String adminPassword = inString();
-        boolean isAdmin = restaurantDao.adminLogin(adminName,adminPassword);
+        boolean isAdmin = false;
+        try {
+            isAdmin = restaurantDao.adminLogin(adminName,adminPassword);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         if(isAdmin){
             System.out.println("================欢迎登录商家管理系统================");
             System.out.println("\t\t\t\t餐馆信息管理（1）");
