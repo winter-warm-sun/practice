@@ -10,7 +10,7 @@ public class AdminMesController {
 
     public void selectUser(String username) {
         try {
-            resDao.selectUser(username);
+            System.out.println(resDao.selectUser(username));
         } catch (SQLException e) {
             e.printStackTrace();
         }

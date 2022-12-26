@@ -15,7 +15,7 @@ public class RestaurantDao {
     public static void main(String[] args) {
         RestaurantDao restaurantDao=new RestaurantDao();
         try {
-            restaurantDao.doOrder("123");
+            System.out.println(restaurantDao.adminLogin("456", "123"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -28,7 +28,7 @@ public class RestaurantDao {
      */
     public  boolean adminLogin(String username,String password) throws SQLException {
         Connection connection=DBUtil.getConnection();
-        String sql="select * from user where username=?";
+        String sql="select * from restaurant where username=?";
         PreparedStatement statement=null;
         ResultSet resultSet=null;
         try {

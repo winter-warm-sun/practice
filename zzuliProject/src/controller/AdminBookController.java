@@ -16,7 +16,7 @@ public class AdminBookController {
         try {
             List<Order> list=resDao.searchAllOrder(username);
             for(Order order:list) {
-                System.out.println(order.getUser()+"/t"+order.getTime()+"/t"+order.getIsDone());
+                System.out.println(order.getUser()+"  "+order.getTime()+"  "+order.getIsDone());
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -29,7 +29,7 @@ public class AdminBookController {
         try {
             List<Order> list=resDao.searchUserOrder(username);
             for(Order order:list) {
-                System.out.println(order.getTime()+"/t"+order.getIsDone());
+                System.out.println(order.getTime()+"  "+order.getIsDone());
             }
         } catch (SQLException e) {
             e.printStackTrace();
