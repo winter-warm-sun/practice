@@ -1,14 +1,18 @@
 package com.example.demo.mapper;
 
 import com.example.demo.model.UserInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
+@Slf4j
 // 表示当前单元测试运行在Spring Boot环境中
 class UserMapperTest {
     @Autowired
@@ -56,5 +60,32 @@ class UserMapperTest {
     void update() {
         int result=userMapper.update(4,"张三");
         Assertions.assertEquals(1,result);
+    }
+
+    @Test
+    void getUserByFullName() {
+        UserInfo userInfo=userMapper.getUserByFullName("张三");
+        log.info("用户信息："+userInfo);
+    }
+
+    @Test
+    void getOrderList() {
+        List<UserInfo> list=userMapper.getOrderList("desc");
+        log.info("列表："+list);
+    }
+
+    @Test
+    void login() {
+        String username = "admin";
+        String password = "' or 1='1";
+        UserInfo userInfo = userMapper.login(username, password);
+        log.info("用户信息：" + userInfo);
+    }
+
+    @Test
+    void getListByName() {
+        String username="a";
+        List<UserInfo> list=userMapper.getListByName(username);
+        log.info("用户列表："+list);
     }
 }
