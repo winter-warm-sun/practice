@@ -73,6 +73,7 @@ public class Application {
                         break;
                     case 2:
                         UserBookController.findRes();
+                        userController(username);
                         break;
                     case 3:
                         restaurantBook(username);
@@ -120,12 +121,15 @@ public class Application {
                 break;
             case 1:
                 controller.selectUser(username);
+                userController(username);
                 break;
             case 2:
                 controller.updateUser(username);
+                userController(username);
                 break;
             case 3:
                 controller.deleteUser(username);
+                userController(username);
                 break;
         }
     }
@@ -147,12 +151,15 @@ public class Application {
                 break;
             case 1:
                 controller.searchUserOrder(username);
+                restaurantBook(username);
                 break;
             case 2:
                 controller.searchResOrder();
+                restaurantBook(username);
                 break;
             case 3:
                 controller.addOrder(username);
+                restaurantBook(username);
                 break;
         }
     }
@@ -204,12 +211,15 @@ public class Application {
         switch (choice){
             case 1:
                 controller.selectUser(username);
+                messContro(username);
                 break;
             case 2:
                 controller.updateUser(username);
+                messContro(username);
                 break;
             case 3:
                 controller.deleteUser(username);
+                messContro(username);
                 break;
         }
     }
@@ -227,12 +237,15 @@ public class Application {
         switch (choice){
             case 1:
                 controller.searchAllOrder(username);
+                bookContro(username);
                 break;
             case 2:
                 controller.searchUserOrder();
+                bookContro(username);
                 break;
             case 3:
                 controller.doOrder(username);
+                bookContro(username);
                 break;
         }
     }

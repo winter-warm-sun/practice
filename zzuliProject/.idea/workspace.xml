@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa57d100-cabf-43ca-bd49-583295967ec3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/82ee8996-1d0a-4678-ad42-cfc3cd295c84.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/82ee8996-1d0a-4678-ad42-cfc3cd295c84.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_20221218/src/main/java/com/example/demo/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_20221218/src/main/java/com/example/demo/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_20221218/src/main/java/com/example/demo/model/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_20221218/src/main/java/com/example/demo/model/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_20221218/src/main/resources/mybatis/ArticleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_20221218/src/main/resources/mybatis/ArticleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_20221218/src/main/resources/mybatis/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_20221218/src/main/resources/mybatis/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_20221218/src/test/java/com/example/demo/mapper/UserMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_20221218/src/test/java/com/example/demo/mapper/UserMapperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/zzuliProject/controller/AdminBookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/zzuliProject/controller/AdminBookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/zzuliProject/controller/AdminMesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/zzuliProject/controller/AdminMesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/zzuliProject/model/RestaurantDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/zzuliProject/model/RestaurantDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/AdminBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AdminBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/AdminMesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AdminMesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/RestaurantDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/RestaurantDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +139,7 @@
       <workItem from="1671883275812" duration="6663000" />
       <workItem from="1671939883920" duration="6314000" />
       <workItem from="1671970932401" duration="151000" />
+      <workItem from="1672318407719" duration="587000" />
     </task>
     <servers />
   </component>
