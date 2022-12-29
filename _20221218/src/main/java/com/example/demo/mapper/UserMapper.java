@@ -24,7 +24,7 @@ public interface UserMapper {
     int update(@Param("id")Integer id,@Param("username") String username);
 
     // 根据全名查询用户对象（非模糊查询）
-    public UserInfo getUserByFullName(@Param("username") String username);
+    public UserInfo getUserByFullName(@Param("name") String name);
 
     //获取列表，根据创建时间进行倒叙或正序
     public List<UserInfo> getOrderList(@Param("order")String order);

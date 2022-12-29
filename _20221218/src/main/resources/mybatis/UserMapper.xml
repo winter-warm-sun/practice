@@ -2,7 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace 要设置是实现接口的具体包名加接口名 -->
 <mapper namespace="com.example.demo.mapper.UserMapper">
-    <select id="getUserById" resultType="com.example.demo.model.UserInfo">
+
+    <resultMap id="BaseMap" type="com.example.demo.model.UserInfo">
+        <!-- 主键映射 -->
+        <id column="id" property="id"></id>
+        <!-- 普通属性映射 -->
+        <result column="username" property="name"></result>
+    </resultMap>
+    <select id="getUserById" resultMap="BaseMap">
         select * from userinfo where id=#{id}
     </select>
 
@@ -28,7 +35,7 @@
 
     <!-- 根据全名查询用户对象-->
     <select id="getUserByFullName" resultType="com.example.demo.model.UserInfo">
-        select * from userinfo where username=#{username}
+        select * from userinfo where username=#{name}
     </select>
 
     <select id="getOrderList" resultType="com.example.demo.model.UserInfo">
