@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/../_20221218/src/main/resources/mybatis/ArticleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_20221218/src/main/resources/mybatis/ArticleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../_20221218/src/main/resources/mybatis/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_20221218/src/main/resources/mybatis/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../_20221218/src/test/java/com/example/demo/mapper/UserMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_20221218/src/test/java/com/example/demo/mapper/UserMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,6 +139,7 @@
       <workItem from="1671939883920" duration="6314000" />
       <workItem from="1671970932401" duration="151000" />
       <workItem from="1672318407719" duration="587000" />
+      <workItem from="1672470965904" duration="339000" />
     </task>
     <servers />
   </component>

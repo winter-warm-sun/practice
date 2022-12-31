@@ -184,8 +184,12 @@ public class Application {
             System.out.println("================欢迎登录商家管理系统================");
             System.out.println("\t\t\t\t餐馆信息管理（1）");
             System.out.println("\t\t\t\t餐馆预定信息管理（2）");
+            System.out.println("\t\t\t\t返回(0)");
             int adminChoice = inInt();
             switch (adminChoice){
+                case 0:
+                    menuAdmin();
+                    break;
                 case 1:
                     messContro(adminName);
                     break;
@@ -205,10 +209,14 @@ public class Application {
         System.out.println("\t\t\t\t查询餐馆信息（1）");
         System.out.println("\t\t\t\t修改餐馆信息（2）");
         System.out.println("\t\t\t\t注销餐馆信息（3）");
+        System.out.println("\t\t\t\t返回(0)");
 
         System.out.println("请输入您的选择：");
         int choice = inInt();
         switch (choice){
+            case 0:
+                menuAdmin();
+                break;
             case 1:
                 controller.selectUser(username);
                 messContro(username);
@@ -233,8 +241,12 @@ public class Application {
         System.out.println("\t\t\t\t查询餐馆所有预定(1)");
         System.out.println("\t\t\t\t查询某用户预定(2)");
         System.out.println("\t\t\t\t处理预定(3)");
+        System.out.println("\t\t\t\t返回(0)");
         int choice = inInt();
         switch (choice){
+            case 0:
+                messContro(username);
+                break;
             case 1:
                 controller.searchAllOrder(username);
                 bookContro(username);
