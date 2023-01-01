@@ -7,10 +7,25 @@
         <!-- 主键映射 -->
         <id column="id" property="id"></id>
         <!-- 普通属性映射 -->
-        <result column="username" property="name"></result>
+        <result column="username" property="username"></result>
+        <result column="password" property="password"></result>
+        <result column="photo" property="photo"></result>
+        <result column="createtime" property="createtime"></result>
+        <result column="updatetime" property="updatetime"></result>
+        <result column="state" property="state"></result>
+        <collection property="artlist"
+                    resultMap="com.example.demo.mapper.ArticleMapper.BaseMap"
+                    columnPrefix="a_">
+        </collection>
     </resultMap>
+
     <select id="getUserById" resultMap="BaseMap">
-        select * from userinfo where id=#{id}
+        select * from userinfo
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+        </where>
     </select>
 
     <insert id="add">
@@ -19,8 +34,30 @@
     </insert>
 
     <insert id="add2" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
-        insert into userinfo(username,password,photo)
-        values (#{username},#{password},#{photo})
+        insert into userinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username!=null">
+                username,
+            </if>
+            <if test="password!=null">
+                password,
+            </if>
+            <if test="photo!=null">
+                photo
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username!=null">
+                #{username},
+            </if>
+            <if test="password!=null">
+                #{password},
+            </if>
+            <if test="photo!=null">
+                #{photo}
+            </if>
+        </trim>
     </insert>
 
     <!--根据用户ID删除用户-->
@@ -28,9 +65,43 @@
         delete from userinfo where id=#{id}
     </delete>
 
+    <delete id="delIds">
+        delete from userinfo where id in
+        <foreach collection="ids" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
     <!--根据用户ID修改用户名称-->
     <update id="update">
-        update userinfo set username=#{username} where id=#{id}
+        update userinfo
+        <set>
+            <if test="username!=null">
+                username=#{username},
+            </if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+            <if test="photo!=null">
+                photo=#{photo}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <update id="update2">
+        update userinfo
+        <set>
+            <if test="username!=null">
+                username=#{username},
+            </if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+            <if test="photo!=null">
+                photo=#{photo}
+            </if>
+        </set>
+        where id=#{id}
     </update>
 
     <!-- 根据全名查询用户对象-->

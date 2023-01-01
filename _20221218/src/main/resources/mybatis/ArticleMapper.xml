@@ -11,8 +11,13 @@
         <result column="uid" property="uid"></result>
         <result column="rcount" property="rcount"></result>
         <result column="state" property="state"></result>
+        <association property="userinfo"
+                     resultMap="com.example.demo.mapper.UserMapper.BaseMap"
+                     columnPrefix="u_"></association>
     </resultMap>
-    <select id="getArticleById" resultType="com.example.demo.model.ArticleInfo">
-        select * from articleinfo where id=#{id}
+    <select id="getArticleById" resultMap="BaseMap">
+        select a.*,u.id u_id,u.username u_username,u.password u_password,u.createtime u_createtime,u.updatetime u_updatetime
+        from articleinfo a left join userinfo u on a.uid=u.id
+        where a.id=#{id}
     </select>
 </mapper>

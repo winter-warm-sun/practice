@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +21,7 @@ class UserMapperTest {
 
     @Test
     void getUserById() {
-        UserInfo userInfo=userMapper.getUserById(1);
+        UserInfo userInfo=userMapper.getUserById(null);
         log.info(String.valueOf(userInfo));
     }
 
@@ -34,19 +35,15 @@ class UserMapperTest {
 //        int result=userMapper.add(userInfo);
 //        Assertions.assertEquals(1,result);
 //    }
-//    @Transactional
-//    @Test
-//    void add2() {
-//        UserInfo userInfo=new UserInfo();
-//        userInfo.setUsername("老六");
-//        userInfo.setPassword("123");
-//        userInfo.setPhoto("default.jpg");
-//        System.out.println("添加之前user id:"+userInfo.getId());
-//        int result=userMapper.add2(userInfo);
-//        System.out.println("受影响的行数："+result);
-//        System.out.println("添加之后 user id:"+userInfo.getId());
-//        Assertions.assertEquals(1,result);
-//    }
+    @Transactional
+    @Test
+    void add2() {
+        UserInfo userInfo=new UserInfo();
+        userInfo.setUsername("老六");
+        userInfo.setPassword("123");
+        int result=userMapper.add2(userInfo);
+        Assertions.assertEquals(1,result);
+    }
 //    @Transactional
 //    @Test
 //    void delete() {
@@ -55,12 +52,12 @@ class UserMapperTest {
 //        Assertions.assertEquals(1,result);
 //    }
 
-//    @Transactional
-//    @Test
-//    void update() {
-//        int result=userMapper.update(4,"张三");
-//        Assertions.assertEquals(1,result);
-//    }
+    @Transactional
+    @Test
+    void update() {
+        int result=userMapper.update(1,"张三");
+        Assertions.assertEquals(1,result);
+    }
 
     @Test
     void getUserByFullName() {
@@ -95,4 +92,29 @@ class UserMapperTest {
         UserInfo userInfo=userMapper.getUserByFullName(name);
         log.info("用户信息："+userInfo);
     }
+
+    @Test
+    void update2() {
+        UserInfo userInfo=new UserInfo();
+        userInfo.setId(1);
+        userInfo.setUsername("张三");
+        int result=userMapper.update2(userInfo);
+        log.info("update2修改的结果为："+result);
+    }
+
+    @Test
+    void delIds() {
+        List<Integer> list=new ArrayList<>();
+        list.add(23);
+        list.add(24);
+        list.add(25);
+        int result=userMapper.delIds(list);
+        log.info("批量删除的结果："+result);
+    }
+
+//    @Test
+//    void getUserAndArticleById() {
+//        UserInfo userInfo=userMapper.getUserAndArticleById(1);
+//        log.info("用户详情："+userInfo);
+//    }
 }

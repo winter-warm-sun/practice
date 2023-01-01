@@ -8,6 +8,14 @@ import java.util.List;
 
 @Mapper  // MyBatis interface
 public interface UserMapper {
+    // 根据ID批量删除用户
+    int delIds(List<Integer> ids);
+
+//    // 根据用户id查询用户及用户发表的所有文章
+//    public UserInfo getUserAndArticleById(@Param("id") Integer id);
+
+    int update2(UserInfo userInfo);
+
     // 根据用户id查询用户
     public UserInfo getUserById(@Param("id") Integer id);
 
