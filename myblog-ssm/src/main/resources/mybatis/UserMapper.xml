@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 要设置是实现接口的具体包名加接口名 -->
+<mapper namespace="com.example.demo.mapper.UserMapper">
+    <select id="selectByName" resultType="com.example.demo.model.User">
+        select * from user where username=#{username}
+    </select>
+    <select id="selectById" resultType="com.example.demo.model.User">
+        select * from user where userid=#{userid}
+    </select>
+</mapper>
