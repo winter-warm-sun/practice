@@ -32,10 +32,45 @@
                     <input type="password" id="password" name="password">
                 </div>
                 <div class="row">
-                    <input type="submit" id="submit" value="提交">
+                    <button id="submit" onclick="mySubmit()">提交</button>
                 </div>
             </div>
         </form>
     </div>
+    <script>
+        function mySubmit() {
+            let username=jQuery("#username");
+            let password=jQuery("#password");
+            // 1.非空效验
+            if(jQuery.trim(username.val())=="") {
+                alert("请输入登录名！");
+                username.focus();
+                return;
+            }
+            if(jQuery.trim(password.val())=="") {
+                alert("请输入密码！");
+                password.focus();
+                return;
+            }
+            // 2.请求后端的接口使用ajax
+            jQuery.ajax({
+                url:"user/login",
+                type:"POST",
+                data:{"username":username.val(),"password":password.val()},
+                success:function(result) {
+                    if(result!=null&&result.succ==200) {
+                        if(result.data==1) {
+                            alert("恭喜：登录成功!")
+                            //location.href(blog_list.html);
+                        }else{
+                            alert("抱歉：登录失败，"+result.msg);
+                        }
+                    }else{
+                        alert("后端程序不可用！");
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>

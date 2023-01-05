@@ -13,11 +13,7 @@ class UserMapperTest {
     @Resource
     private UserMapper userMapper;
 
-    @Test
-    void selectByName() {
-        User user=userMapper.selectByName("zhangsan");
-        log.info(user.toString());
-    }
+
 
     @Test
     void selectById() {
