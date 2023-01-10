@@ -11,7 +11,7 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
-    public User login(String username,String password) {
-        return userMapper.login(username,password);
+    public User login(String username, String password) {
+        return userMapper.login(username, password);
     }
 }

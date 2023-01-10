@@ -13,12 +13,12 @@ public class BlogService {
     private BlogMapper blogMapper;
 
     public List<Blog> selectAll() {
-        List<Blog> blogs=blogMapper.selectAll();
+        List<Blog> blogs = blogMapper.selectAll();
         return blogs;
     }
 
     public Blog selectOne(int blogid) {
-        Blog blog=blogMapper.selectOne(blogid);
+        Blog blog = blogMapper.selectOne(blogid);
         return blog;
     }
 }

@@ -18,14 +18,14 @@ public class BlogController {
 
     @RequestMapping("/select")
     public List<Blog> select(HttpServletRequest req) {
-        String parm=req.getParameter("blogid");
-        if(parm==null) {
+        String parm = req.getParameter("blogid");
+        if (parm == null) {
             // 不存在参数，获取博客列表
             return blogService.selectAll();
-        }else {
+        } else {
             // 存在参数，获取博客详情
-            int blodid=Integer.parseInt(parm);
-            List<Blog> list=new ArrayList<>();
+            int blodid = Integer.parseInt(parm);
+            List<Blog> list = new ArrayList<>();
             list.add(blogService.selectOne(blodid));
             return list;
         }

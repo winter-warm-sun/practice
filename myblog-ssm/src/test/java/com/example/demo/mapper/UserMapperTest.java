@@ -14,10 +14,9 @@ class UserMapperTest {
     private UserMapper userMapper;
 
 
-
     @Test
     void selectById() {
-        User user=userMapper.selectById(2);
+        User user = userMapper.selectById(2);
         log.info(user.toString());
     }
 }

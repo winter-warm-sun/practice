@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 @Slf4j
 class BlogMapperTest {
@@ -21,28 +22,28 @@ class BlogMapperTest {
     @Transactional
     @Test
     void insert() {
-        Blog blog=new Blog();
+        Blog blog = new Blog();
         blog.setTitle("666");
         blog.setContent("666");
         blog.setUserid(1);
-        int ret=blogMapper.insert(blog);
-        Assertions.assertEquals(1,ret);
+        int ret = blogMapper.insert(blog);
+        Assertions.assertEquals(1, ret);
     }
 
     @Transactional
     @Test
     void selectOne() {
-        Blog blog=blogMapper.selectOne(1);
+        Blog blog = blogMapper.selectOne(1);
         log.info(String.valueOf(blog));
     }
 
     @Test
     void selectAll() {
-        List<Blog> list=blogMapper.selectAll();
-        for(Blog blog:list) {
-            String content=blog.getContent();
-            if(content.length()>50) {
-                content = content.substring(0,50)+"...";
+        List<Blog> list = blogMapper.selectAll();
+        for (Blog blog : list) {
+            String content = blog.getContent();
+            if (content.length() > 50) {
+                content = content.substring(0, 50) + "...";
             }
             blog.setContent(content);
         }
@@ -52,7 +53,7 @@ class BlogMapperTest {
     @Transactional
     @Test
     void delete() {
-        int result=blogMapper.delete(5);
-        Assertions.assertEquals(1,result);
+        int result = blogMapper.delete(5);
+        Assertions.assertEquals(1, result);
     }
 }

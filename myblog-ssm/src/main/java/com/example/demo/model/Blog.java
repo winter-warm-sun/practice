@@ -15,7 +15,7 @@ public class Blog {
 
     //返回格式化好的时间
     public String getPostTime() {
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return simpleDateFormat.format(posttime);
     }
 }
