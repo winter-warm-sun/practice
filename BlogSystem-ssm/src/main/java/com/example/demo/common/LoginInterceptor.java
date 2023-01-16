@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * 登录拦截器
+ * 自定义登录拦截器
  */
 @Component
 @Slf4j
@@ -18,6 +18,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         // 登录判断业务
         HttpSession session=request.getSession(false);
         if(session!=null&&session.getAttribute("userinfo")!=null) {
+            //当前用户已经登录了
             return true;
         }
         log.error("当前用户没有访问权限");

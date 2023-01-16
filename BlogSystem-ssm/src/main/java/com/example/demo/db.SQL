@@ -31,7 +31,7 @@ create table articleinfo(
 )default charset 'utf8mb4';
 
 -- 添加一个用户信息
-INSERT INTO `mycnblog`.`userinfo` (`id`, `username`, `password`, `photo`, `createtime`, `updatetime`, `state`) VALUES
+INSERT INTO `mycnblog` ,`userinfo` (`id`, `username`, `password`, `photo`, `createtime`, `updatetime`, `state`) VALUES
     (1, 'admin', 'admin', '', '2021-12-06 17:10:48', '2021-12-06 17:10:48', 1);
 
 -- 文章添加测试数据

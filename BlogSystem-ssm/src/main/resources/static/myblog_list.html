@@ -8,6 +8,7 @@
     <title>博客列表</title>
     <link rel="stylesheet" href="css/conmmon.css">
     <link rel="stylesheet" href="css/blog_list.css">
+    <script src="js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
         <span class="spacer"></span>
         <a href="blog_list.html">主页</a>
         <a href="blog_edit.html">写博客</a>
-        <a href="login.html">登陆</a>
+        <a href="javascript:onExit()">退出登陆</a>
         <!-- <a href="#">注销</a> -->
     </div>
     <!-- 版心 -->
@@ -41,32 +42,60 @@
             </div>
         </div>
         <!-- 右侧内容详情 -->
-        <div class="container-right">
-            <!-- 每一篇博客包含标题, 摘要, 时间 -->
-            <div class="blog">
-                <div class="title">我的第一篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=1" class="detail">查看全文 &gt;&gt;</a>
-            </div>
-            <div class="blog">
-                <div class="title">我的第二篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
-            </div>
+        <div class="container-right" id="artlistDiv">
+        
         </div>
     </div>
 </body>
 
+<script>
+    var descLength=80; // 简介最大长度
+    // 字符串截取,将文章正文截取成简介
+    function mySubStr(content) {
+        if(content.length>descLength) {
+            return content.substr(0,descLength);
+        }
+        return content;
+    }
+
+    // 初始化个人列表信息
+    function initList() {
+        jQuery.ajax({
+            url:"/art/mylist",
+            type:"POST",
+            data:{},
+            success:function(result) {
+                console.dir(result);
+                if(result.code==200&&result.data!=null
+                && result.data.length>0) {
+                    var html="";
+                    result.data.forEach(function(item) {
+                        html+=
+                    });
+                }
+            }
+        });
+    }
+
+    function onExit() {
+        if(confirm("确认退出？")) {
+            //ajax请求后端进行退出操作
+            jQuery.ajax({
+                url:"/user/logout",
+                type:"POST",
+                data:{},
+                success:function(result) {
+                    location.href="/login.html";
+                },
+                error:function(err) {
+                    if(err!=null&& err.status==401) {
+                        alert("用户未登录，即将跳转到登录页!");
+                        // 已经被拦截器拦截了，未登录
+                        location.href="/login.html"
+                    }
+                }
+            });
+        }
+    }
+</script>
 </html>
