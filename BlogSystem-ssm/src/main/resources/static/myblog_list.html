@@ -93,7 +93,7 @@
                                     // 三个选项放在一个容器中
                                     let parent=document.createElement('div');
                                     parent.className='parent';
-                                    blogDiv.appendChild(parent);
+                                    
 
                                     // 构造 查看全文
                                     let a = document.createElement('a');
@@ -103,11 +103,11 @@
                                     a.href = 'blog_content.html?blogId=' + blog.id;
                                     parent.appendChild(a);
 
-                                    //todo:
+                                    //构造修改文章
                                     let b=document.createElement('a');
                                     b.innerHTML='修改文章 &gt;&gt;';
                                     // 此处希望点击之后，能够修改文章内容
-                                    b.herf='blog_update.html?blogId='+blog.id;
+                                    b.href='blog_update.html?blogId='+blog.id;
                                     parent.appendChild(b);
 
                                     //todo:
@@ -116,7 +116,8 @@
                                     //此处点击后，能够删除文章
                                     c.href="javascript:myDel("+blog.id+")";
                                     parent.appendChild(c);
-
+                                    
+                                    blogDiv.appendChild(parent);
                                     // 把 blogDiv 挂到 dom 树上
                                     rightDiv.appendChild(blogDiv);
                                 }
@@ -169,6 +170,31 @@
                         alert("用户未登录，即将跳转到登录页!");
                         // 已经被拦截器拦截了，未登录
                         location.href="/login.html"
+                    }
+                }
+            });
+        }
+    }
+
+    function myDel(aid) {
+        if(confirm("确认删除？")) {
+            //ajax请求后端进行删除操作
+            jQuery.ajax({
+                url:"/art/delete",
+                type:"POST",
+                data:{"aid":aid},
+                success:function(result) {
+                    if(result.code==200&&result.data>0) {
+                        alert("恭喜：删除成功！");
+                        location.href="myblog_list.html";
+                    }else {
+                        alert("抱歉：删除失败，请重试！");
+                    }
+                },
+                error:function(err) {
+                    if(err!=null&&err.status==401) {
+                        alert("用户未登录，即将跳转到登录页！");
+                        location.href="/login.html";
                     }
                 }
             });

@@ -19,4 +19,16 @@ public class ArticleService {
     public ArticleInfo getDetail(Integer aid) {
         return articleMapper.getDetail(aid);
     }
+
+    public int update(Integer aid, Integer uid, String title, String content) {
+        return articleMapper.update(aid,uid,title,content);
+    }
+
+    public int add(Integer uid, String title, String content) {
+        return articleMapper.add(uid,title,content);
+    }
+
+    public int delete(Integer aid) {
+        return articleMapper.delete(aid);
+    }
 }

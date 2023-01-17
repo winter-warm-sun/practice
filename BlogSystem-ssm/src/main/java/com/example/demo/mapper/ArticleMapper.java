@@ -11,4 +11,15 @@ public interface ArticleMapper {
     List<ArticleInfo> getMyList(@Param("uid") Integer uid);
 
     ArticleInfo getDetail(@Param("aid") Integer aid);
+
+    int update(@Param("aid") Integer aid,
+               @Param("uid") Integer uid,
+               @Param("title") String title,
+               @Param("content") String content);
+
+    int add(@Param("uid") Integer uid,
+            @Param("title") String title,
+            @Param("content") String content);
+
+    int delete(@Param("aid") Integer aid);
 }
