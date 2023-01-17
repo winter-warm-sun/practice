@@ -2,4 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace 要设置是实现接口的具体包名加接口名 -->
 <mapper namespace="com.example.demo.mapper.ArticleMapper">
+    <select id="getMyList" resultType="com.example.demo.model.ArticleInfo">
+        select * from articleinfo where uid= #{uid}
+    </select>
+    <select id="getDetail" resultType="com.example.demo.model.ArticleInfo">
+        select * from articleinfo where id=#{aid}
+    </select>
 </mapper>

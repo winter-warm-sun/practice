@@ -17,7 +17,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         // 登录判断业务
         HttpSession session=request.getSession(false);
-        if(session!=null&&session.getAttribute("userinfo")!=null) {
+        if(session!=null&&session.getAttribute(Constant.SESSION_USERINFO_KEY)!=null) {
             //当前用户已经登录了
             return true;
         }

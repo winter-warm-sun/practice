@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.common.Constant;
+import com.example.demo.common.SessionUtil;
 import com.example.demo.model.UserInfo;
 import com.example.demo.service.UserService;
 import org.springframework.util.StringUtils;
@@ -34,7 +35,7 @@ public class UserController {
         if(!StringUtils.hasLength(username)||!StringUtils.hasLength(password)) {
             return 0;
         }
-        // 2.进行添加操作
+        // 2.进行查询操作
         UserInfo userInfo=userService.login(username,password);
         if(userInfo==null||userInfo.getId()<=0) {// userinfo 无效
             return -1;
@@ -43,6 +44,11 @@ public class UserController {
             session.setAttribute(Constant.SESSION_USERINFO_KEY,userInfo);
             return 1;
         }
+    }
+
+    @RequestMapping("/myinfo")
+    public UserInfo myInfo(HttpServletRequest request) {
+        return SessionUtil.getLoginUser(request);
     }
 
     /**
@@ -60,6 +66,4 @@ public class UserController {
         }
         return true;
     }
-
-
 }

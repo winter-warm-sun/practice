@@ -29,7 +29,7 @@
         <div class="container-left">
             <div class="card">
                 <img src="img/head.jpg" class="avtar" alt="">
-                <h3>如风暖阳</h3>
+                <h3 id="username"></h3>
                 <a href="https://github.com/winter-warm-sun">github 地址</a>
                 <div class="counter">
                     <span>文章</span>
@@ -64,19 +64,96 @@
             url:"/art/mylist",
             type:"POST",
             data:{},
-            success:function(result) {
-                console.dir(result);
-                if(result.code==200&&result.data!=null
-                && result.data.length>0) {
-                    var html="";
-                    result.data.forEach(function(item) {
-                        html+=
-                    });
+            success:function(body) {
+                if(body.code==200&&body.data!=null
+                && body.data.length>0) {
+                                // 获取到的 body 就是一个 js 对象数组, 每个元素就是一个 js 对象, 根据这个对象构造 div
+                                // 1. 先把 .right 里原有的内容给清空
+                                let rightDiv = document.querySelector('.container-right');
+                                rightDiv.innerHTML = '';
+                                // 2. 遍历 body, 构造出一个个的 blogDiv
+                                for (let blog of body.data) {
+                                    let blogDiv = document.createElement('div');
+                                    blogDiv.className = 'blog';
+                                    // 构造标题
+                                    let titleDiv = document.createElement('div');
+                                    titleDiv.className = 'title';
+                                    titleDiv.innerHTML = blog.title;
+                                    blogDiv.appendChild(titleDiv);
+                                    // 构造发布时间
+                                    let dateDiv = document.createElement('div');
+                                    dateDiv.className = 'date';
+                                    dateDiv.innerHTML = blog.createtime;
+                                    blogDiv.appendChild(dateDiv);
+                                    // 构造博客的摘要
+                                    let descDiv = document.createElement('div');
+                                    descDiv.className = 'desc';
+                                    descDiv.innerHTML = mySubStr(blog.content);
+                                    blogDiv.appendChild(descDiv);
+                                    // 三个选项放在一个容器中
+                                    let parent=document.createElement('div');
+                                    parent.className='parent';
+                                    blogDiv.appendChild(parent);
+
+                                    // 构造 查看全文
+                                    let a = document.createElement('a');
+                                    a.innerHTML = '查看全文 &gt;&gt;';
+                                    // 此处希望点击之后能够跳转到 博客详情页 !!
+                                    // 这个跳转过程需要告知服务器要访问的是哪个博客的详情页. 
+                                    a.href = 'blog_content.html?blogId=' + blog.id;
+                                    parent.appendChild(a);
+
+                                    //todo:
+                                    let b=document.createElement('a');
+                                    b.innerHTML='修改文章 &gt;&gt;';
+                                    // 此处希望点击之后，能够修改文章内容
+                                    b.herf='blog_update.html?blogId='+blog.id;
+                                    parent.appendChild(b);
+
+                                    //todo:
+                                    let c=document.createElement('a');
+                                    c.innerHTML='删除文章 &gt;&gt;';
+                                    //此处点击后，能够删除文章
+                                    c.href="javascript:myDel("+blog.id+")";
+                                    parent.appendChild(c);
+
+                                    // 把 blogDiv 挂到 dom 树上
+                                    rightDiv.appendChild(blogDiv);
+                                }
+                }else {
+                    // 此人未发表任何文章
+                    jQuery("#artlistDiv").html("<h1>暂无数据</h1>");
                 }
-            }
+            },
+            error:function(err) {
+                    alert("获取博客列表失败！");
+                }
         });
     }
 
+    initList(); // 当浏览器渲染引擎执行到此行时就会调用initList()方法
+
+    // 获取个人信息
+    function myInfo() {
+        jQuery.ajax({
+            url:"/user/myinfo",
+            type:"POST",
+            data:{},
+            success:function(result) {
+                if(result.code==200&&result.data!=null) {
+                    jQuery("#username").text(result.data.username);
+                }
+            },
+            error:function(err) {
+                    if(err!=null&& err.status==401) {
+                        alert("用户未登录，即将跳转到登录页!");
+                        // 已经被拦截器拦截了，未登录
+                        location.href="/login.html"
+                    }
+                }
+        });
+    }
+    myInfo();
     function onExit() {
         if(confirm("确认退出？")) {
             //ajax请求后端进行退出操作

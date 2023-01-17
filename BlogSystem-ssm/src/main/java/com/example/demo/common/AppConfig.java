@@ -23,6 +23,9 @@ public class AppConfig implements WebMvcConfigurer {
         add("/img/**");
         add("/user/login");//登录接口
         add("/user/reg");//注册接口
+        add("/art/detail"); // 放行文章详情接口
+        add("/art/list"); // 放行文章分页列表接口
+        add("/art/totalpage"); // 放行文章分页总页数接口
     }};
 
     @Autowired

@@ -27,9 +27,14 @@
     text-align: center;
 }
 
+.blog .parent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 /* 查看详情 按钮 */
-.blog .detail {
-    display: block;
+.blog a {
     width: 120px;
     height: 40px;
     line-height: 40px;
@@ -44,7 +49,7 @@
 }
 
 /* 查看详情按钮的鼠标 hover 效果 */
-.blog .detail:hover {
+.blog a:hover {
     background-color: #000;
     color: #fff;
 }

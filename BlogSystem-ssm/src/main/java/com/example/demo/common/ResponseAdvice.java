@@ -9,6 +9,8 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import java.util.HashMap;
+
 /**
  * 统一数据返回封装
  */
@@ -22,6 +24,9 @@ public class ResponseAdvice implements ResponseBodyAdvice {
     @SneakyThrows
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+        if(body instanceof HashMap) {
+            return body;
+        }
         if(body instanceof String) {//String类型封装返回报错，所以必须用json对象进行包装后再进行返回
             ObjectMapper objectMapper=new ObjectMapper();
             return objectMapper.writeValueAsString(Result.success(body));

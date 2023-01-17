@@ -13,6 +13,7 @@
     <script src="editor.md/editormd.js"></script>
     <script src="editor.md/lib/marked.min.js"></script>
     <script src="editor.md/lib/prettify.min.js"></script>
+    <script src="js/tools.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
         <div class="container-left">
             <div class="card">
                 <img src="img/head.jpg" class="avtar" alt="">
-                <h3>如风暖阳</h3>
+                <h3 id="username"></h3>
                 <a href="http:www.github.com">github 地址</a>
                 <div class="counter">
                     <span>文章</span>
@@ -48,9 +49,12 @@
         <div class="container-right">
             <div class="blog-content">
                 <!-- 博客标题 -->
-                <h3>我的第一篇博客</h3>
+                <h3 id="title"></h3>
                 <!-- 博客时间 -->
-                <div class="date">2021-06-02</div>
+                <div class="data">
+                    <span id="date"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    访问量:<span id="rcount"></span>
+                </div>
                 <!-- 博客正文 -->
                 <div id="editorDiv">
 
@@ -59,14 +63,53 @@
         </div>
     </div>
     <script type="text/javascript">
-            var editormd;
-            function initEdit(md){
-                editormd = editormd.markdownToHTML("editorDiv", {
-                markdown : md, // Also, you can dynamic set Markdown text
-                // htmlDecode : true,  // Enable / disable HTML tag encode.
-                // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
-                });
+        // 获取博客详情
+        function getBlogDetail() {
+            //从url中获取文章id
+            var aid=getURLParam("blogId");
+            if(aid!=null&&aid>0) {
+                //访问后端查询文章详情
+                jQuery.ajax({
+                url:"/art/detail",
+                type:"POST",
+                data:{"aid":aid},
+                success:function(body) {
+                    if(body.code==200&&body.data!=null) {
+                        let art=body.data;
+                        jQuery("#title").text(art.title);
+                        jQuery("#date").text(art.createtime);
+                        jQuery("#rcount").text(art.rcount);
+                        editormd = editormd.markdownToHTML("editorDiv", {
+                                    markdown : art.content
+                                });
+                        myInfo();
+                    }
+                }
+            });
             }
+        }
+        getBlogDetail();
+
+        // 获取个人信息
+        function myInfo() {
+            jQuery.ajax({
+                url:"/user/myinfo",
+                type:"POST",
+                data:{},
+                success:function(result) {
+                    if(result.code==200&&result.data!=null) {
+                        jQuery("#username").text(result.data.username);
+                    }
+                },
+                error:function(err) {
+                    if(err!=null&& err.status==401) {
+                        alert("用户未登录，即将跳转到登录页!");
+                        // 已经被拦截器拦截了，未登录
+                        location.href="/login.html"
+                    }
+                }
+            });
+        }
             
     </script> 
 </body>
