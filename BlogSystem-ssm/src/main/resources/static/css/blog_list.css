@@ -35,6 +35,7 @@
 
 /* 查看详情 按钮 */
 .blog a {
+    display: block;
     width: 120px;
     height: 40px;
     line-height: 40px;
@@ -47,6 +48,7 @@
     /* 给颜色加上过渡效果 */
     transition: all 0.3s;
 }
+
 
 /* 查看详情按钮的鼠标 hover 效果 */
 .blog a:hover {

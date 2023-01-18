@@ -5,7 +5,6 @@ import com.example.demo.common.SessionUtil;
 import com.example.demo.model.ArticleInfo;
 import com.example.demo.model.UserInfo;
 import com.example.demo.service.ArticleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +25,16 @@ public class ArticleController {
             return articleService.getMyList(userInfo.getId());
         }
         return null;
+    }
+
+    @RequestMapping("/list")
+    public List<ArticleInfo> getList(Integer pindex,Integer psize) {
+        if(pindex==null|| psize==null) {
+            return null;
+        }
+        // 分页公式，计算偏移量
+        int offset=(pindex-1)*psize;
+        return articleService.getList(psize,offset);
     }
 
     @RequestMapping("/detail")
@@ -85,5 +94,17 @@ public class ArticleController {
             }
         }
         return 0;
+    }
+
+    @RequestMapping("/totalpage")
+    public Integer totalPage(Integer psize) {
+        if(psize!=null) {
+            // 参数有效
+            int totalCount=articleService.getTotalCount();
+            // 总页数
+            int totalPage=totalCount/psize+1;
+            return totalPage;
+        }
+        return null;
     }
 }

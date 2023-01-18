@@ -19,4 +19,10 @@
     <select id="getDetail" resultType="com.example.demo.model.ArticleInfo">
         select * from articleinfo where id=#{aid}
     </select>
+    <select id="getList" resultType="com.example.demo.model.ArticleInfo">
+        select * from articleinfo limit #{psize} offset #{offset}
+    </select>
+    <select id="getTotalCount" resultType="java.lang.Integer">
+        select * from articleinfo
+    </select>
 </mapper>

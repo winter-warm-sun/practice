@@ -43,8 +43,9 @@
             background: #4e4eeb;
             color: #fff;
         }
-
     </style>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/tools.js"></script>
 </head>
 
 <body>
@@ -62,104 +63,115 @@
     <!-- 版心 -->
     <div class="container">
         <!-- 右侧内容详情 -->
-        <div class="container-right">
-            <!-- 每一篇博客包含标题, 摘要, 时间 -->
-            <div class="blog">
-                <div class="title">我的第一篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=1" class="detail">查看全文 &gt;&gt;</a>
+        <div class="container-right" style="width: 100%;">
+            <div id="listDiv">
+                
             </div>
-            <div class="blog">
-                <div class="title">我的第二篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
-            </div>
-            <div class="blog">
-                <div class="title">我的第二篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
-            </div>
-            <div class="blog">
-                <div class="title">我的第二篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
-            </div>
-            <div class="blog">
-                <div class="title">我的第二篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
-            </div>
-            <div class="blog">
-                <div class="title">我的第二篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
-            </div>
-            <div class="blog">
-                <div class="title">我的第二篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
-            </div>
-            <div class="blog">
-                <div class="title">我的第二篇博客</div>
-                <div class="date">2021-06-02</div>
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <a href="blog_content.html?id=2" class="detail">查看全文 &gt;&gt;</a>
-            </div>
+            
             <hr>
             <div class="blog-pagnation-wrapper">
-                <button class="blog-pagnation-item">首页</button> 
-                <button class="blog-pagnation-item">上一页</button>  
-                <button class="blog-pagnation-item">下一页</button>
-                <button class="blog-pagnation-item">末页</button>
+                <button class="blog-pagnation-item" onclick="first()">首页</button> 
+                <button class="blog-pagnation-item" onclick="before()">上一页</button>  
+                <button class="blog-pagnation-item" onclick="next()">下一页</button>
+                <button class="blog-pagnation-item" onclick="last()">末页</button>
             </div>
         </div>
     </div>
+    <script>
+        let pindex=1; //当前的页码
+        let psize=3; // 每页显示的条数信息
+        let totalpage=1; // 总共多少页
+
+        // 初始化分页的参数，尝试从url中获取pindex和psize
+        function initPageParam(){
+            let pi=getURLParam("pindex");
+            if(pi!="") {
+                pindex=pi;
+            }
+            let ps=getURLParam("psize");
+            if(ps!="") {
+                psize=ps;
+            }
+        }
+        initPageParam();
+
+        // 查询总共有多少页的数据
+        function getTotalPage() {
+            jQuery.ajax({
+                url:"art/totalpage",
+                type:"GET",
+                data:{
+                    "psize":psize
+                },
+                success:function(result) {
+                    if(result.code==200&&result.data!=null) {
+                        totalpage=result.data;
+                    }
+                }
+            });
+        }
+        getTotalPage();
+
+        // 查询分页数据
+        function getList(){
+            jQuery.ajax({
+                url:"/art/list",
+                type:"GET",
+                data:{
+                   "pindex":pindex,
+                   "psize":psize
+                },
+                success:function(result){
+                    if(result.code==200 && result.data!=null && result.data.length>0){
+                        // 循环拼接数据到 document
+                        var finalHtml="";
+                        for(var i=0;i<result.data.length;i++){
+                            var item = result.data[i];
+                            finalHtml+='<div class="blog">';
+                            finalHtml+='<div class="title">'+item.title+'</div>';
+                            finalHtml+='<div class="date">'+item.createtime+'</div>';
+                            finalHtml+='<div class="desc">'+item.content+'</div>';
+                            finalHtml+='<a href="blog_content.html?blogId='+item.id+'" class="detail">查看全文 &gt;&gt;</a>';
+                            finalHtml+='</div>';
+                        }
+                        jQuery("#listDiv").html(finalHtml);
+                    }
+                }
+            });
+        }
+        getList();
+
+        // 首页
+        function first() {
+            location.href="blog_list.html";
+        }
+
+        // 上一页
+        function before() {
+            if(pindex<=1) {
+                alert("已经是第一页了！");
+                return false;
+            }
+            pindex=parseInt(pindex)-1;
+            location.href="blog_list.html?pindex="+pindex+"&psize="+psize;
+        }
+
+        // 下一页
+        function next() {
+            pindex=parseInt(pindex)+1;
+            if(pindex>totalpage) {
+                // 已经在最后一页了
+                alert("已经是最后一页了！");
+                return false;
+            }
+            location.href="blog_list.html?pindex="+pindex+"&psize="+psize;
+        }
+
+        // 末页
+        function last() {
+            pindex=totalpage;
+            location.href="blog_list.html?pindex="+pindex+"&psize="+psize;
+        }
+    </script>
 </body>
 </html>

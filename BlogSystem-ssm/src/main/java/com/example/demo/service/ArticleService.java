@@ -31,4 +31,12 @@ public class ArticleService {
     public int delete(Integer aid) {
         return articleMapper.delete(aid);
     }
+
+    public List<ArticleInfo> getList(Integer psize, Integer offset) {
+        return articleMapper.getList(psize,offset);
+    }
+
+    public int getTotalCount() {
+        return articleMapper.getTotalCount();
+    }
 }

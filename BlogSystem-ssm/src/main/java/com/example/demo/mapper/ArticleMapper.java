@@ -22,4 +22,9 @@ public interface ArticleMapper {
             @Param("content") String content);
 
     int delete(@Param("aid") Integer aid);
+
+    List<ArticleInfo> getList(@Param("psize") Integer psize,
+                              @Param("offset") Integer offset);
+
+    int getTotalCount();
 }
