@@ -15,7 +15,7 @@ public class UserService {
         return userMapper.add(username,password);
     }
 
-    public UserInfo login(String username, String password) {
-        return userMapper.login(username,password);
+    public UserInfo login(String username) {
+        return userMapper.login(username);
     }
 }

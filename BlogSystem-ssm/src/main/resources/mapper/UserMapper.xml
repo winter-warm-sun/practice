@@ -9,6 +9,6 @@
     </insert>
     <select id="login" resultType="com.example.demo.model.UserInfo">
         select * from userinfo where
-        username=#{username} and password=#{password}
+        username=#{username}
     </select>
 </mapper>

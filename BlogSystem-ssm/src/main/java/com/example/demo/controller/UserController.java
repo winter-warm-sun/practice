@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.common.Constant;
+import com.example.demo.common.SecurityUtil;
 import com.example.demo.common.SessionUtil;
 import com.example.demo.model.UserInfo;
 import com.example.demo.service.UserService;
@@ -25,7 +26,7 @@ public class UserController {
             return 0;
         }
         // 2.进行添加操作
-        int result=userService.add(username,password);
+        int result=userService.add(username, SecurityUtil.encrypt(password));// 密码加盐
         return result;
     }
 
@@ -36,14 +37,18 @@ public class UserController {
             return 0;
         }
         // 2.进行查询操作
-        UserInfo userInfo=userService.login(username,password);
+        UserInfo userInfo=userService.login(username);
         if(userInfo==null||userInfo.getId()<=0) {// userinfo 无效
             return -1;
         }else {
-            HttpSession session= request.getSession();
-            session.setAttribute(Constant.SESSION_USERINFO_KEY,userInfo);
-            return 1;
+            boolean result=SecurityUtil.decrypt(password,userInfo.getPassword());
+            if(result) {
+                HttpSession session= request.getSession();
+                session.setAttribute(Constant.SESSION_USERINFO_KEY,userInfo);
+                return 1;
+            }
         }
+        return -1;
     }
 
     @RequestMapping("/myinfo")

@@ -23,6 +23,6 @@
         select * from articleinfo limit #{psize} offset #{offset}
     </select>
     <select id="getTotalCount" resultType="java.lang.Integer">
-        select * from articleinfo
+        select count(*) from articleinfo
     </select>
 </mapper>
