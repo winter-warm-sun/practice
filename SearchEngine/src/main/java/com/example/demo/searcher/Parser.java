@@ -1,17 +1,33 @@
 package com.example.demo.searcher;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+
 import java.io.*;
 import java.util.ArrayList;
-
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
+@Component
 public class Parser {
     // 先指定一个加载文档的路径
     private static final String INPUT_PATH="D:\\GitHub\\api";
+    // 创建一个index实例
+    private Index index=new Index();
 
-    //
+    private AtomicLong t1=new AtomicLong(0);
+    private AtomicLong t2=new AtomicLong(0);
+
+    // 该方法实现单线程制作索引
     public void run() {
+        long beg=System.currentTimeMillis();
+        System.out.println("索引制作开始!");
         // 1.根据上面指定的路径，枚举出该路径中所有的文件(html)，这个过程需要把所有子目录中的文件都能获取到
         ArrayList<File> fileList=new ArrayList<>();
         enumFile(INPUT_PATH,fileList);
+        long endEnumFile=System.currentTimeMillis();
+        System.out.println("枚举文件完毕！消耗时间："+(endEnumFile-beg)+"ms");
 
         // 2.针对上面罗列出的文件的路径，打开文件，读取文件内容，并进行解析、构建索引
         for(File f:fileList) {
@@ -19,16 +35,63 @@ public class Parser {
             System.out.println("开始解析："+f.getAbsolutePath());
             parseHTML(f);
         }
+        long endFor=System.currentTimeMillis();
+        System.out.println("遍历文件完毕！消耗时间："+(endFor-endEnumFile)+"ms");
+
+        // 3.把在内存中构造好的索引数据结构，保存到数据库中
+        index.save();
+        long end=System.currentTimeMillis();
+        System.out.println("索引制作完毕！消耗时间："+(end-beg)+"ms");
     }
 
+    // 该方法实现多线程制作索引
+    public void runByThread() throws InterruptedException {
+        long beg=System.currentTimeMillis();
+        System.out.println("索引制作开始");
+
+        // 1.枚举出所有文件
+        ArrayList<File> files=new ArrayList<>();
+        enumFile(INPUT_PATH,files);
+        // 2.循环遍历文件，此处为了能够通过多线程制作索引，就直接引入线程池
+        CountDownLatch latch=new CountDownLatch(files.size());
+        ExecutorService executorService= Executors.newFixedThreadPool(8);
+        for (File f:files) {
+            executorService.submit(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("解析："+f.getAbsolutePath());
+                    parseHTML(f);
+                    latch.countDown();
+                }
+            });
+        }
+        // await 方法会阻塞，直到所有的选手都调用countDown撞线之后，才能阻塞结束
+        latch.await();
+        // 手动的把线程池里的线程都干掉
+        executorService.shutdown();
+        // 3.把索引保存到数据库
+        index.save();
+
+        long end=System.currentTimeMillis();
+        System.out.println("索引制作完毕！消耗时间："+(end-beg)+"ms");
+        System.out.println("t1:"+t1+",t2:"+t2);
+    }
     private void parseHTML(File f) {
         // 1.解析出HTML的标题
         String title=parseTitle(f);
         // 2.解析出HTML对应的URL
         String url=parseUrl(f);
         // 3.解析出HTML对应的正文
+        long beg=System.nanoTime();
         String content=parseContent(f);
+        long mid=System.nanoTime();
+        // 4.把解析出来的信息，加入到索引中
+        index.addDoc(title,url,content);
+        long end=System.nanoTime();
 
+        // 频繁打印会拖慢速度，所以不打印，只累加
+        t1.addAndGet(mid-beg);
+        t2.addAndGet(end-mid);
     }
 
     private String parseContent(File f) {
@@ -111,9 +174,9 @@ public class Parser {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // 通过main方法来实现整个制作索引的过程
         Parser parser=new Parser();
-        parser.run();
+        parser.runByThread();
     }
 }

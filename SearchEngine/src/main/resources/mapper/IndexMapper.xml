@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 要设置是实现接口的具体包名加接口名 -->
+<mapper namespace="com.example.demo.mapper.IndexMapper">
+
+    <insert id="saveForwardIndex">
+        insert into forward_index values (#{docid},#{title},#{url},#{content})
+    </insert>
+</mapper>
