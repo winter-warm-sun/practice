@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class InvertedInfo {
+    private int id;
     private String word;
-    private Weight weight;
+    private int docid;
+    private int weight;
 }
