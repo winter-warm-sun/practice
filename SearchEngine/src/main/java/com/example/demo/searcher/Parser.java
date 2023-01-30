@@ -140,6 +140,33 @@ public class Parser {
         return "";
     }
 
+    private String readFile(File f) {
+        StringBuilder content=new StringBuilder();
+        try (BufferedReader bufferedReader=new BufferedReader(new FileReader(f))){
+            while (true) {
+                String line=bufferedReader.readLine();
+                if(line==null) {
+                    break;
+                }
+                content.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return content.toString();
+    }
+
+    private String parseContentByRegex(File f) {
+        // 1.先把整个文件内容都读取出来
+        String content=readFile(f);
+        // 2.使用正则替换掉< script >标签
+        content=content.replaceAll("<script.*?>(.*?)</script>"," ");
+        // 3.使用正则替换掉其他标签
+        content=content.replaceAll("<.*?>"," ");
+        // 4.多个空格合并成一个
+        content=content.replaceAll("\\s+"," ");
+        return content;
+    }
     private String parseUrl(File f) {
         String part1="https://docs.oracle.com/javase/8/docs/api/";
         String part2=f.getAbsolutePath().substring(INPUT_PATH.length());

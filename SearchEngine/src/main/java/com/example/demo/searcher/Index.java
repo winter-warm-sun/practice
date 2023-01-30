@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Component
 public class Index {
@@ -177,4 +174,8 @@ public class Index {
         index.indexMapper.saveForwardIndex(forwardIndex);
     }
 
+    //5.将数据库中的索引保存到内存中
+    public void load() {
+
+    }
 }

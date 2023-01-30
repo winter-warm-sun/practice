@@ -5,35 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a24208-9a33-4952-85ba-c77a0b9a1b6d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../BlogSystem-ssm/src/main/java/com/example/demo/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BlogSystem-ssm/src/main/java/com/example/demo/Test2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BlogSystem-ssm/src/test/java/com/example/demo/Demo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_20230129/src/main/java/com/example/demo/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_20230129/src/main/java/com/example/demo/mapper/TestMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_20230129/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_20230129/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_20230129/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_20230129/src/main/resources/mapper/TestMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_20230129/src/test/java/com/example/demo/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/DocSearcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_20230129/src/test/java/com/example/demo/TestTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BlogSystem-ssm/src/main/java/com/example/demo/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BlogSystem-ssm/src/main/java/com/example/demo/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/093d5684-3ef0-40e6-9540-99fc603e839d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/093d5684-3ef0-40e6-9540-99fc603e839d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/SearchEngineApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/SearchEngineApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/mapper/IndexMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/mapper/IndexMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/DocInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/DocInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/Index.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/InvertedInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/InvertedInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/IndexMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/IndexMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/mapper/IndexMapperTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/SearchEngineApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/SearchEngineApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/mapper/IndexMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/mapper/IndexMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/DocInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/DocInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/searcher/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/Index$1WordCnt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/Index$1WordCnt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/Index.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/Index.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/InvertedInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/InvertedInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/IndexMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/IndexMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_20230129/src/main/java/com/example/demo/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_20230129/src/main/java/com/example/demo/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_20230129/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/searcher/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_20230129/src/main/java/com/example/demo/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_20230129/src/main/java/com/example/demo/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,6 +207,7 @@
       <workItem from="1674989345927" duration="726000" />
       <workItem from="1674999652929" duration="1201000" />
       <workItem from="1675038372988" duration="10553000" />
+      <workItem from="1675068211577" duration="7125000" />
     </task>
     <servers />
   </component>
