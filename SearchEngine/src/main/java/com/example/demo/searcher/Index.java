@@ -6,16 +6,29 @@ import org.ansj.splitWord.analysis.ToAnalysis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 @Component
 public class Index {
     public static final String INPUT_PATH="D:\\GitHub\\api";
 
     @Autowired
     private IndexMapper indexMapper;
+
+    public static Index index;
+
+    @PostConstruct
+    public void init() {
+        index=this;
+        index.indexMapper=this.indexMapper;
+    }
 
     // 正排索引,下标对应docId
     private ArrayList<DocInfo> forwardIndex=new ArrayList<>();
@@ -26,6 +39,7 @@ public class Index {
     // 新创建两个锁对象
     private Object locker1=new Object();
     private Object locker2=new Object();
+    private Object locker3=new Object();
 
     // 1.根据docId查正排
     public DocInfo getDocInfo(int docId) {
@@ -106,14 +120,14 @@ public class Index {
                     ArrayList<Weight> newInvertedList=new ArrayList<>();
                     // 把新的文档构造成weight对象，插入进来
                     Weight weight=new Weight();
-                    weight.setDocId(docInfo.getDocId());
+                    weight.setDocId(docInfo.getDocid());
                     weight.setWeight(entry.getValue().titleCount*10+entry.getValue().contentCount);
                     newInvertedList.add(weight);
                     invertedIndex.put(entry.getKey(),newInvertedList);
                 }else {
                     // 如果非空，就把当前这个文档，构造出一个weight对象，插入到倒排拉链的后面
                     Weight weight=new Weight();
-                    weight.setDocId(docInfo.getDocId());
+                    weight.setDocId(docInfo.getDocid());
                     weight.setWeight(entry.getValue().titleCount*10+entry.getValue().contentCount);
                     invertedList.add(weight);
                 }
@@ -127,7 +141,7 @@ public class Index {
         docInfo.setUrl(url);
         docInfo.setContent(content);
         synchronized (locker1) {
-            docInfo.setDocId(forwardIndex.size());
+            docInfo.setDocid(forwardIndex.size());
             forwardIndex.add(docInfo);
         }
         return docInfo;
@@ -139,13 +153,28 @@ public class Index {
         saveInvertedIndex();
     }
 
+    // 通过动态SQL，将倒排索引数据保存进数据库中
     private void saveInvertedIndex() {
+        ArrayList<InvertedInfo> invertedList=new ArrayList<>();
+        for (Map.Entry<String,ArrayList<Weight>> entry:invertedIndex.entrySet()) {
+            String word=entry.getKey();
+            for(Weight high:entry.getValue()) {
+                int docid=high.getDocId();
+                int weight=high.getWeight();
+                InvertedInfo invertedInfo=new InvertedInfo();
+                invertedInfo.setWord(word);
+                invertedInfo.setDocid(docid);
+                invertedInfo.setWeight(weight);
+                invertedInfo.setId(invertedList.size());
+                invertedList.add(invertedInfo);
+            }
+        }
+        index.indexMapper.saveInvertedIndex(invertedList);
     }
 
+    // 通过动态SQL，将正排索引数据保存进数据库中
     private void saveForwardIndex() {
-        for (DocInfo docInfo:forwardIndex) {
-            indexMapper.saveForwardIndex(docInfo.getDocId(),docInfo.getTitle(),docInfo.getUrl(),docInfo.getContent());
-        }
+        index.indexMapper.saveForwardIndex(forwardIndex);
     }
 
 }

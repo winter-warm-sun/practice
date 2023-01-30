@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.searcher.Parser;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -7,8 +8,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication
 public class SearchEngineApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(SearchEngineApplication.class, args);
+        Parser parser=new Parser();
+        parser.runByThread();
     }
 
 }
