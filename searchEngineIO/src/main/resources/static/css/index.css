@@ -1,0 +1,106 @@
+ /* 这部分代码来写样式 */
+ /* 先去掉浏览器的默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 给整体的页面指定一个高度(和浏览器窗口一样高) */
+html, body {
+    height: 100%;
+    /* 设置背景图 */
+    background-image: url(../image/cat.jpg);
+    /* 设置背景图不平铺 */
+    background-repeat: no-repeat;
+    /* 设置背景图的位置 */
+    background-position: center center;
+    /* 设置背景图的大小 */
+    background-size: cover;
+}
+
+/* 针对 .container 也设置样式, 实现版心效果 */
+.container {
+    /* 此处的宽度也可以设置成百分数的形式, 当前就使用一个固定宽度 */
+    width: 1200px;
+    height: 100%;
+    /* 设置水平居中 */
+    margin: 0 auto;
+    /* 设置背景色, 让版心和背景图能够区分开 */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* 设置圆角矩形 */
+    border-radius: 10px;
+    /* 设置内边距, 避免文字内容紧贴着边界 */
+    padding: 20px;
+
+    /* 加上这个属性, 超出元素的部分就会自动生成一个滚动条. */
+    overflow: auto;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header>input {
+    width: 1050px;
+    height: 50px;
+    font-size: 22px;
+    line-height: 50px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.header>button {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(42,107,205);
+    color: #fff;
+    font-size: 22px;
+    line-height: 50px;
+    border-radius: 10px;
+    border: none;
+}
+
+.header>button:active {
+    background: gray;
+}
+
+.result .count {
+    color: gray;
+    margin-top: 10px;
+}
+
+.item {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.item a {
+    display: block;
+    height: 40px;
+
+    font-size: 22px;
+    line-height: 40px;
+    font-weight: 700;
+
+    color: rgb(42,107,205);
+}
+
+.item .desc {
+    font-size: 18px;
+}
+
+.item .url {
+    font-size: 18px;
+    color: rgb(0, 128, 0);
+}
+
+.item .desc i {
+    color: red;
+    /* 去掉斜体 */
+    font-style: normal;
+}

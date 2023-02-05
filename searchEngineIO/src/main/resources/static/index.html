@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 文档搜索</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<!-- 通过 .container 来表示整个页面元素的容器 -->
+<div class="container">
+    <!-- 1. 搜索框 + 搜索按钮 -->
+    <div class="header">
+        <input type="text" id="search-key" placeholder="在这里输入要查询的Java关键字" >
+        <button id="search-btn" onclick="submit()">搜索</button>
+    </div>
+
+    <!-- 2. 显示搜索结果 -->
+    <div class="result">
+        <!-- 包含了很多条记录 -->
+        <!-- 每个 .item 就表示一条记录 -->
+
+        <!-- 接下来要通过访问服务器的方式获取到搜索结果, 并且由 JS 动态生成页面元素 -->
+        <!-- <div class="item">
+            <a href="#">我是标题</a>
+            <div class="desc">我是一段描述. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam qui dolor quo tempora dignissimos itaque facilis, accusantium porro sapiente beatae harum soluta ex quos quia eius vero repudiandae voluptatem veniam.</div>
+            <div class="url">http://www.baidu.com</div>
+        </div>   -->
+    </div>
+</div>
+
+<script src="js/jquery.js"></script>
+
+<script>
+    // 放置用户自己写的 js 代码
+     function submit() {
+         // 先进性非空效验
+         let input=jQuery("#search-key")
+         if(input.val()=="") {
+             alert("请先输入要查询的关键词！");
+             input.focus();
+             return false;
+         }
+
+        // 然后构造一个 ajax 请求发给服务器
+        jQuery.ajax({
+            type: "POST",
+            url: "search",
+            data:{
+                query:input.val()
+            },
+            success: function(data) {
+                buildResult(data);
+            }
+        })
+    }
+
+    function buildResult(data) {
+        // 通过这个函数, 来把响应数据给构造成页面内容.
+        // 要做的工作就是, 遍历 data 中的每个元素,
+        // 针对每个元素都创建一个 div.item, 然后把标题, url, 描述都构造好
+        // 再把这个 div.item 给加入到 div.result 中
+        // 这些操作都是基于 DOM API 来展开~
+
+        // 获取到 .result 这个标签
+        let result = document.querySelector('.result');
+        // 清空上次的结果.
+        result.innerHTML = '';
+
+        // 先构造一个 div 用来显示结果的个数
+        let countDiv = document.createElement('div');
+        countDiv.innerHTML = '当前找到 ' + data.length + '个结果!';
+        countDiv.className = 'count';
+        result.appendChild(countDiv);
+
+        // 这就相当于 java 中的 for each
+        // 此处得到的 item 就会分别代表 data 中的每个元素
+        for (let item of data) {
+            let itemDiv = document.createElement('div');
+            itemDiv.className = 'item';
+
+            // 构造一个标题
+            let title = document.createElement('a');
+            title.href = item.url;
+            title.innerHTML = item.title;
+            title.target = '_blank';
+            itemDiv.appendChild(title);
+
+            // 构造一个描述
+            let desc = document.createElement('div');
+            desc.className = 'desc';
+            desc.innerHTML = item.desc;
+            itemDiv.appendChild(desc);
+
+            // 构造一个 url
+            let url = document.createElement('div');
+            url.className = 'url';
+            url.innerHTML = item.url;
+            itemDiv.appendChild(url);
+
+            // 把 itemDiv 加到 .result 中
+            result.appendChild(itemDiv);
+        }
+    }
+
+</script>
+</body>
+</html>
