@@ -83,7 +83,7 @@ public class Parser {
         String url=parseUrl(f);
         // 3.解析出HTML对应的正文
         long beg=System.nanoTime();
-        String content=parseContent(f);
+        String content=parseContentByRegex(f);
         long mid=System.nanoTime();
         // 4.把解析出来的信息，加入到索引中
         index.addDoc(title,url,content);
@@ -167,6 +167,7 @@ public class Parser {
         content=content.replaceAll("\\s+"," ");
         return content;
     }
+
     private String parseUrl(File f) {
         String part1="https://docs.oracle.com/javase/8/docs/api/";
         String part2=f.getAbsolutePath().substring(INPUT_PATH.length());

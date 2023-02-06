@@ -1,4 +1,4 @@
-package com.example.demo.searcher;
+package searcher;
 
 // 这个类就是把 文档id 和 文档与词的相关性 权重 进行一个包裹.
 public class Weight {

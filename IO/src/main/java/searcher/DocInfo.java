@@ -1,4 +1,4 @@
-package com.example.demo.searcher;
+package searcher;
 
 public class DocInfo {
     private int docId;

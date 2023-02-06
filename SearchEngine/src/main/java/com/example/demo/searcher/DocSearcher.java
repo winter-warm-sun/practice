@@ -2,14 +2,12 @@ package com.example.demo.searcher;
 
 import org.ansj.domain.Term;
 import org.ansj.splitWord.analysis.ToAnalysis;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-@Component
 public class DocSearcher {
     private Index index=new Index();
 
@@ -93,14 +91,14 @@ public class DocSearcher {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         DocSearcher docSearcher=new DocSearcher();
-        while (true) {
-            System.out.println("-> ");
-            String query=scanner.next();
-            List<Result> results=docSearcher.search(query);
-            for (Result result:results) {
-                System.out.println("=========================");
-                System.out.println(result);
-            }
-        }
+//        while (true) {
+//            System.out.println("-> ");
+//            String query=scanner.next();
+//            List<Result> results=docSearcher.search(query);
+//            for (Result result:results) {
+//                System.out.println("=========================");
+//                System.out.println(result);
+//            }
+//        }
     }
 }

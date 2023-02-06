@@ -10,12 +10,17 @@ import java.util.List;
 
 @Component
 public class Test {
+    private static Test test;
+
     @Autowired
-    private static TestMapper testMapper;
+    private TestMapper testMapper;
 
-    public static void insert() {
-        testMapper.saveForwardIndex(1,"","","");
+    @PostConstruct
+    public void init() {
+        test=this;
+        test.testMapper=this.testMapper;
     }
-
-
+    public static void insert() {
+        test.testMapper.saveForwardIndex(1,"","","");
+    }
 }

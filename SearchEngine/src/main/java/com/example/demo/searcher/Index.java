@@ -152,6 +152,7 @@ public class Index {
 
     // 通过动态SQL，将倒排索引数据保存进数据库中
     private void saveInvertedIndex() {
+        // 遍历Map，将map中的信息保存到list中去
         ArrayList<InvertedInfo> invertedList=new ArrayList<>();
         for (Map.Entry<String,ArrayList<Weight>> entry:invertedIndex.entrySet()) {
             String word=entry.getKey();
@@ -176,6 +177,35 @@ public class Index {
 
     //5.将数据库中的索引保存到内存中
     public void load() {
+        loadForwardIndex();
+        loadInvertedIndex();
+    }
 
+    private void loadForwardIndex() {
+        forwardIndex=index.indexMapper.loadForwardIndex();
+    }
+
+    private void loadInvertedIndex() {
+        ArrayList<InvertedInfo> invertedList=
+                index.indexMapper.loadInvertedIndex();
+        for (InvertedInfo info:invertedList) {
+            List<Weight> inverted=invertedIndex.get(info.getWord());
+            if(inverted==null) {
+                // 如果为空，就插入一个新的键值对
+                ArrayList<Weight> newInvertedList=new ArrayList<>();
+                // 把新的文档构造成weight对象，插入进来
+                Weight weight=new Weight();
+                weight.setDocId(info.getDocid());
+                weight.setWeight(info.getWeight());
+                newInvertedList.add(weight);
+                invertedIndex.put(info.getWord(),newInvertedList);
+            }else {
+                // 如果非空，就把当前这个文档，构造出一个weight对象，插入到倒排拉链的后面
+                Weight weight=new Weight();
+                weight.setDocId(info.getDocid());
+                weight.setWeight(info.getWeight());
+                inverted.add(weight);
+            }
+        }
     }
 }

@@ -16,4 +16,8 @@ public interface IndexMapper {
 
 
     void saveInvertedIndex(@Param("list")ArrayList<InvertedInfo> invertedInfos);
+
+    ArrayList<DocInfo> loadForwardIndex();
+
+    ArrayList<InvertedInfo> loadInvertedIndex();
 }

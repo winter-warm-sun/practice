@@ -1,4 +1,4 @@
-package com.example.demo.searcher;
+package searcher;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,7 +7,6 @@ import org.ansj.splitWord.analysis.ToAnalysis;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,8 +14,15 @@ import java.util.Map;
 
 // 通过这个类在内存中来构造出索引结构
 public class Index {
-    private static String INDEX_PATH = INDEX_PATH = "D:/project/doc_searcher_index/";
+    private static String INDEX_PATH = null;
 
+    static {
+        if (Config.isOnline) {
+            INDEX_PATH = "/home/tz/install/doc_searcher_index/";
+        } else {
+            INDEX_PATH = "D:/project/doc_searcher_index/";
+        }
+    }
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
