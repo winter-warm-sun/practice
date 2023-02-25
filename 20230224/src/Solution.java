@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 class Solution {
     public static int search(int[] nums, int target) {
         int count=0;
