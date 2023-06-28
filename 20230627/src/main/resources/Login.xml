@@ -1,0 +1,14 @@
+<!--Login类的映射文件 -->
+<hibernate-mapping package="PO">
+    <class name="Login" table="login">
+        <id column="ID" name="id" type="java.lang.Integer">
+            <generator class="foreign">
+                <param name="property">company</param>
+            </generator>
+        </id>
+        <property name="loginname" column="LOGINNAME" type="string"/>
+        <property name="loginpwd" column="LOGINPWD" type="string"/>
+        <!-- 映射Company与Login的一对一关联-->
+        <one-to-one name="company" cascade="all" class="PO.Company" constraind="true"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="gettingAfterAdvice" class="com.beans.GettingAfterAdvice">
+    </bean>
+    <!-- 使用Spring代理工厂配置代理-->
+    <bean id="reception" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- 指定代理接口,如果有多个接口可以使用list元素指定-->
+        <property name="proxyInterfaces" value="com.beans.Reception"></property>
+        <!-- 指定通知-->
+        <property name="interceptorNames">
+
+            <list>
+                <!-- 指定环绕通知-->
+                <value>gettingAroundAdvice</value>
+            </list>
+
+        </property>
+        <!-- 指定目标对象-->
+        <property name="target" ref="target"></property>
+    </bean>
+    <bean id="target" class="com.beans.ConcreteReception"></bean>
+</beans>
+

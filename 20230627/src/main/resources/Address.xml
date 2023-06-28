@@ -1,0 +1,13 @@
+<!-- Address类的映射文件-->
+<hibernate-mapping package="PO">
+    <class name="Address" table="address">
+        <id column="ID" name="id" type="java.lang.Integer">
+            <generator class="identity"/>
+        </id>
+        <property name="province" column="PROVINCE" type="string"/>
+        <property name="city" column="CITY" type="string"/>
+
+        <!--映射Client与Address的一对一外键关联-->
+        <one-to-one name="client" class="PO.Client" property-ref="address"/>
+    </class>
+</hibernate-mapping>

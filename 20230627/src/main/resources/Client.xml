@@ -1,0 +1,14 @@
+<!-- Client类的映射文件-->
+<hibernate-mapping package="PO">
+    <class name="Client" table="client">
+        <id column="ID" name="id" type="integer">
+            <generator class="identity"/>
+        </id>
+        <property name="clientname" column="CLIENTNAME" type="string"/>
+        <property name="phone" column="PHONE" type="string"/>
+
+        <!--映射Client到Address的一对一外键关联，唯一的多对一，实际上变成一对一-->
+        <many-to-one name="address" class="PO.Address" column="address"
+        cascade="all" lazy="false" unique="true"/>
+    </class>
+</hibernate-mapping>

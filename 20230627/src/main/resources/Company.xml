@@ -1,0 +1,14 @@
+<!--Company类的映射文件 -->
+<hibernate-mapping package="PO">
+    <class name="Company" table="company">
+        <id column="ID" name="id" type="java.lang.Integer">
+            <generator class="identity"/>
+        </id>
+        <property name="companyname" column="COMPANYNAME" type="string"/>
+        <property name="linkman" column="LINKMAN" type="string"/>
+        <property name="telephone" column="EMAIL" type="string"/>
+        <!--映射Company与Login的一对一主键关联 -->
+        <one-to-one name="login" cascade="all" class="PO.Login" lazy="false"
+            fetch="join" outer-join="true"/>
+    </class>
+</hibernate-mapping>
